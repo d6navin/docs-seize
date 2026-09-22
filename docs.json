@@ -78,7 +78,8 @@
           "utilities/overview",
           "utilities/settings",
           "utilities/privacy",
-          "utilities/self-purge"
+          "utilities/self-purge",
+          "scripting"
         ]
       },
       {

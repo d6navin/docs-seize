@@ -1,0 +1,234 @@
+---
+title: "Scripting"
+sidebarTitle: "Scripting"
+description: "Complete reference for all scripting variables available in seize"
+---
+
+<Tabs>
+  <Tab title="Guild">
+    | Variable | Result |
+    | --- | --- |
+    | `{guild}` | seize |
+    | `{guild.name}` | seize |
+    | `{guild.id}` | 1234567890123456789 |
+    | `{guild.count}` | 1,250 |
+    | `{guild.member_count}` | 1,250 |
+    | `{guild.shard}` | 0 |
+    | `{guild.owner_id}` | 9876543210987654321 |
+    | `{guild.created_at}` | 1609459200 |
+    | `{guild.emoji_count}` | 42 |
+    | `{guild.role_count}` | 18 |
+    | `{guild.boost_count}` | 7 |
+    | `{guild.boost_tier}` | 2 |
+    | `{guild.preferred_locale}` | en-US |
+    | `{guild.key_features}` | COMMUNITY, NEWS, BANNER |
+    | `{guild.icon}` | [https://cdn.discordapp.com/icons/.../icon.png](https://cdn.discordapp.com/icons/.../icon.png) |
+    | `{guild.banner}` | [https://cdn.discordapp.com/banners/.../banner.png](https://cdn.discordapp.com/banners/.../banner.png) |
+    | `{guild.splash}` | [https://cdn.discordapp.com/splashes/.../splash.png](https://cdn.discordapp.com/splashes/.../splash.png) |
+    | `{guild.discovery}` | [https://cdn.discordapp.com/discovery-splashes/.../splash.png](https://cdn.discordapp.com/discovery-splashes/.../splash.png) |
+    | `{guild.max_presences}` | N/A |
+    | `{guild.max_members}` | 500000 |
+    | `{guild.max_users}` | 500000 |
+    | `{guild.max_video_channel_users}` | 25 |
+    | `{guild.afk_timeout}` | 300 |
+    | `{guild.afk_channel}` | AFK |
+    | `{guild.channels}` | general, welcome, voice-1 |
+    | `{guild.channels_count}` | 24 |
+    | `{guild.text_channels}` | general, welcome, rules |
+    | `{guild.text_channels_count}` | 16 |
+    | `{guild.voice_channels}` | voice-1, voice-2 |
+    | `{guild.voice_channels_count}` | 6 |
+    | `{guild.category_channels}` | Information, Chat, Voice |
+    | `{guild.category_channels_count}` | 3 |
+
+    | Variable | Result |
+    | --- | --- |
+    | `{guild.owner}` | navin |
+    | `{guild.description}` | The official seize server |
+    | `{guild.vanity_url}` | [https://discord.gg/seize](https://discord.gg/seize) |
+    | `{guild.vanity_url_code}` | seize |
+    | `{guild.verification_level}` | high |
+    | `{guild.mfa_level}` | require_2fa |
+    | `{guild.explicit_content_filter}` | all_members |
+    | `{guild.default_notifications}` | only_mentions |
+    | `{guild.nsfw_level}` | default |
+    | `{guild.premium_progress_bar_enabled}` | True |
+    | `{guild.system_channel}` | #general |
+    | `{guild.rules_channel}` | #rules |
+    | `{guild.public_updates_channel}` | #updates |
+    | `{guild.widget_enabled}` | True |
+    | `{guild.large}` | False |
+    | `{guild.chunked}` | True |
+    | `{guild.unavailable}` | False |
+    | `{guild.premium_subscription_count}` | 7 |
+    | `{guild.premium_tier}` | 2 |
+    | `{guild.stage_channels}` | Stage |
+    | `{guild.forums}` | help-forum |
+    | `{guild.categories}` | Information, Chat, Voice |
+    | `{guild.emojis}` | :pepe:, :kekw: |
+    | `{guild.stickers}` | seize_wave |
+    | `{guild.scheduled_events}` | Movie Night |
+    | `{guild.threads}` | daily-chat |
+    | `{guild.roles}` | @everyone, Member, Moderator, Admin |
+    | `{guild.default_role}` | @everyone |
+    | `{guild.self_role}` | seize |
+    | `{guild.bitrate_limit}` | 96000 |
+    | `{guild.filesize_limit}` | 26214400 |
+    | `{guild.sticker_limit}` | 30 |
+    | `{guild.emoji_limit}` | 100 |
+  </Tab>
+  <Tab title="Member">
+    | Variable | Result |
+    | --- | --- |
+    | `{user}` | navin |
+    | `{user.name}` | navin |
+    | `{user.discriminator}` | 0 |
+    | `{user.tag}` | 0 |
+    | `{user.id}` | 123456789012345678 |
+    | `{user.mention}` | @navin |
+    | `{user.avatar}` | [https://cdn.discordapp.com/avatars/.../avatar.png](https://cdn.discordapp.com/avatars/.../avatar.png) |
+    | `{user.display_avatar}` | [https://cdn.discordapp.com/avatars/.../avatar.png](https://cdn.discordapp.com/avatars/.../avatar.png) |
+    | `{user.display_name}` | navin |
+    | `{user.created_at}` | 2020-01-01 00:00:00+00:00 |
+    | `{user.created_at_timestamp}` | 1577836800 |
+    | `{user.bot}` | No |
+    | `{user.primary_guild}` | seize |
+    | `{user.guild_avatar}` | [https://cdn.discordapp.com/guilds/.../avatars/.../avatar.png](https://cdn.discordapp.com/guilds/.../avatars/.../avatar.png) |
+    | `{user.joined_at}` | 2023-05-14 12:30:00+00:00 |
+    | `{user.joined_at_timestamp}` | 1684067400 |
+    | `{user.boost}` | Yes |
+    | `{user.boost_since}` | 2024-01-10 08:00:00+00:00 |
+    | `{user.boost_since_timestamp}` | 1704873600 |
+    | `{user.color}` | #ff5555 |
+    | `{user.top_role}` | Admin |
+    | `{user.role_list}` | Admin, Moderator, Member |
+    | `{user.role_text_list}` | @Admin, @Moderator, @Member |
+    | `{user.join_position}` | 42 |
+    | `{user.join_position_suffix}` | 42nd |
+
+    | Variable | Result |
+    | --- | --- |
+    | `{user.global_name}` | Navin |
+    | `{user.nick}` | Nav |
+    | `{user.system}` | False |
+    | `{user.pending}` | False |
+    | `{user.public_flags}` | \<PublicUserFlags value=256> |
+    | `{user.status}` | online |
+    | `{user.raw_status}` | online |
+    | `{user.mobile_status}` | offline |
+    | `{user.desktop_status}` | online |
+    | `{user.web_status}` | offline |
+    | `{user.activity}` | Playing Valorant |
+    | `{user.activities}` | Playing Valorant |
+    | `{user.voice}` | \<VoiceState channel=\<VoiceChannel id=... name=voice-1>> |
+    | `{user.timed_out_until}` | N/A |
+    | `{user.communication_disabled_until}` | N/A |
+    | `{user.flags}` | \<MemberFlags value=0> |
+    | `{user.pending}` | False |
+    | `{user.premium_since}` | 2024-01-10 08:00:00+00:00 |
+    | `{user.resolved_permissions}` | \<Permissions value=...> |
+    | `{user.guild_permissions}` | \<Permissions value=...> |
+    | `{user.banner}` | [https://cdn.discordapp.com/banners/.../banner.png](https://cdn.discordapp.com/banners/.../banner.png) |
+    | `{user.accent_color}` | #7289da |
+    | `{user.accent_colour}` | #7289da |
+    | `{user.colour}` | #ff5555 |
+    | `{user.default_avatar}` | [https://cdn.discordapp.com/embed/avatars/0.png](https://cdn.discordapp.com/embed/avatars/0.png) |
+    | `{user.dm_channel}` | N/A |
+    | `{user.mutual_guilds}` | seize |
+  </Tab>
+  <Tab title="Channel">
+    | Variable | Result |
+    | --- | --- |
+    | `{channel.name}` | general |
+    | `{channel.id}` | 1122334455667788990 |
+    | `{channel.mention}` | #general |
+    | `{channel.type}` | text |
+    | `{channel.position}` | 0 |
+    | `{channel.topic}` | Welcome to seize! |
+    | `{channel.category_id}` | 9988776655443322110 |
+    | `{channel.category_name}` | Information |
+    | `{channel.slowmode_delay}` | 5 |
+
+    | Variable | Result |
+    | --- | --- |
+    | `{channel.nsfw}` | False |
+    | `{channel.news}` | False |
+    | `{channel.created_at}` | 1609459200 |
+    | `{channel.jump_url}` | [https://discord.com/channels/.../](https://discord.com/channels/.../)... |
+    | `{channel.last_message_id}` | 1234567890123456789 |
+    | `{channel.default_auto_archive_duration}` | 1440 |
+    | `{channel.default_thread_slowmode_delay}` | 0 |
+    | `{channel.guild}` | seize |
+    | `{channel.category}` | Information |
+    | `{channel.permissions_synced}` | True |
+
+    | Variable | Result |
+    | --- | --- |
+    | `{channel.bitrate}` | 64000 |
+    | `{channel.user_limit}` | 0 |
+    | `{channel.rtc_region}` | automatic |
+    | `{channel.video_quality_mode}` | auto |
+    | `{channel.members}` | navin |
+
+    | Variable | Result |
+    | --- | --- |
+    | `{channel.owner_id}` | 123456789012345678 |
+    | `{channel.parent_id}` | 1122334455667788990 |
+    | `{channel.archived}` | False |
+    | `{channel.locked}` | False |
+    | `{channel.archive_timestamp}` | 2024-01-10 08:00:00+00:00 |
+    | `{channel.auto_archive_duration}` | 1440 |
+    | `{channel.message_count}` | 42 |
+    | `{channel.member_count}` | 5 |
+  </Tab>
+  <Tab title="Embed & Layout">
+    Embed and container tags are inline directives, separated with `$v`. Use them to build embeds, buttons, and Component V2 containers.
+
+    **Embeds**
+
+    | Variable | Result |
+    | --- | --- |
+    | `{embed}` | Starts an embed payload |
+    | `{content: text}` | Sets the message content outside the embed |
+    | `{title: text}` | Embed title |
+    | `{url: link}` | Embed title URL |
+    | `{description: text}` | Embed description (alias `{desc: text}`) |
+    | `{color: #hex}` | Embed color (alias `{colour: #hex}`) |
+    | `{thumbnail: url}` | Embed thumbnail image |
+    | `{image: url}` | Embed image |
+    | `{author: name && icon_url && url}` | Embed author (icon and URL optional) |
+    | `{footer: text && icon_url}` | Embed footer (icon optional) |
+    | `{field: name && value && inline}` | Embed field (`inline` optional) |
+    | `{timestamp}` | Adds the current timestamp to the embed |
+
+    **Buttons**
+
+    | Variable | Result |
+    | --- | --- |
+    | `{button: link && label && url && disabled}` | Link button (opens URL) |
+    | `{button: blurple && label && custom_id && disabled}` | Primary (blurple) button |
+    | `{button: gray && label && custom_id && disabled}` | Secondary (gray/grey) button |
+    | `{button: green && label && custom_id && disabled}` | Success (green) button |
+    | `{button: red && label && custom_id && disabled}` | Danger (red) button |
+
+    `disabled` is optional. Aliases: `grey` = `gray`, `button` = `gray`.
+
+    **Component V2 Containers**
+
+    Using `{container}` anywhere in the message switches rendering to Component V2 layout.
+
+    | Variable | Result |
+    | --- | --- |
+    | `{container}` | Starts a new container |
+    | `{accent: #hex}` | Container accent color (aliases `{color}` / `{colour}`) |
+    | `{section}` | Starts a new section inside a container |
+    | `{text: text}` | Text display inside a section (aliases `{desc}` / `{description}`) |
+    | `{accessory: url}` | Section thumbnail accessory (must be http/https URL) |
+    | `{image: url}` | Media gallery image inside a container |
+    | `{separator: small}` | Small separator |
+    | `{separator: large}` | Large separator |
+    | `{separator: small && hidden}` | Invisible small separator (spacing only) |
+    | `{separator: large && hidden}` | Invisible large separator (spacing only) |
+    | `{button: ...}` | Buttons inside a container behave the same as embed buttons above |
+  </Tab>
+</Tabs>
