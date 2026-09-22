@@ -1,0 +1,74 @@
+---
+title: "Configure prefixes, aliases, and bot behavior in seize"
+sidebarTitle: "Configuration"
+description: "Customize how seize responds in your server. Set server and personal prefixes, create command aliases, ignore users, and use mention prefixes."
+---
+
+seize gives you several ways to control how commands are triggered in your server. You can change the default prefix, create personal shortcuts, build custom command aliases, silence specific users, and invoke the bot by mentioning it. This page covers every option.
+
+## Server prefix
+
+By default, seize uses `,` (comma) as its prefix. Server administrators can change or reset it at any time.
+
+| Command | Syntax | Permission |
+| --- | --- | --- |
+| View prefix | `,prefix` | Anyone |
+| Set prefix | `,prefix set <new_prefix>` | Administrator |
+| Reset prefix | `,prefix reset` | Administrator |
+
+Prefix lengths are limited to **5 characters** maximum. When you change the prefix, seize updates its in-memory cache immediately so the new prefix is active right away.
+
+## Personal prefix (Premium)
+
+Premium users can set a prefix that applies only to themselves across every server. This prefix takes priority over the server prefix.
+
+| Command | Syntax |
+| --- | --- |
+| View or set | `,selfprefix <prefix>` |
+| Remove | `,selfprefix remove` |
+
+Personal prefixes can be up to **10 characters** long. If you do not have Premium, the command will tell you that a subscription is required.
+
+## Mention prefix
+
+You can invoke seize by mentioning it instead of using a text prefix. The bot also responds when you mention it with no additional text by replying with the current server prefix and a link to commands.
+
+Examples:
+
+- `@seize help`
+- `@seize` (returns the current prefix)
+
+Behind the scenes, seize builds a prefix list that includes both the server/personal prefixes and the bot mention. If your message contains any mention, the mention is checked without the trailing space for convenience.
+
+## Command aliases
+
+Server managers can create custom shortcuts that map one word to an existing command. Aliases are stored per-guild and resolved before the command is processed.
+
+| Command | Syntax | Permission |
+| --- | --- | --- |
+| Add alias | `,alias add <command_name> <alias>` | Manage Server |
+| List aliases | `,alias list` | Manage Server |
+| Remove alias | `,alias remove <alias>` | Manage Server |
+| Remove all for a command | `,alias removeall <command_name>` | Manage Server |
+| Reset all aliases | `,alias reset` | Manage Server |
+
+For example, if you run `,alias add ban kaboom`, typing `,kaboom @user` will execute the ban command. You cannot override hardcoded command names or aliases built into the bot.
+
+## Ignoring users
+
+If a specific user is spamming commands or causing disruption, moderators can make seize ignore all commands from that user. The user is still able to chat normally; only bot commands are blocked.
+
+| Command | Syntax | Permission |
+| --- | --- | --- |
+| Toggle ignore | `,ignore <user>` | Manage Messages |
+| View ignored list | `,ignorelist` | Manage Messages |
+
+Running `,ignore` on a user who is already ignored removes them from the ignored list. Ignored users are checked before aliases or command processing, so the bot silently drops their messages.
+
+## Slash commands
+
+seize supports Discord slash commands in addition to prefix commands. Slash commands appear in the command palette when you type `/` and do not require a prefix. They use the same underlying logic as prefix commands, so settings like ignored users still apply.
+
+<Tip>
+  You can combine configurations: set a short server prefix for regular use, add a personal prefix for yourself, and keep aliases for frequently used moderation commands.
+</Tip>

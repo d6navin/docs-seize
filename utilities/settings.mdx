@@ -1,0 +1,166 @@
+---
+title: "Personalize Your seize User and Server Settings"
+sidebarTitle: "Settings"
+description: "Change your language, roleplay preferences, embed colors, footers, and command prefixes inside seize with step-by-step command references."
+---
+
+seize lets you personalize how the bot looks and responds, both for yourself and for your server. Use the settings page to change your language, toggle roleplay, set a custom prefix, or style embeds the way you like them.
+
+## Personal Settings
+
+Personal settings apply to you everywhere you use seize. Run `,settings` to open the interactive settings menu, or use the commands below directly.
+
+<Steps>
+  <Step title="Open your settings menu">
+    Type `,settings` in any server. An interactive UI appears showing your current language, premium status, and roleplay toggle.
+  </Step>
+  <Step title="Change your language">
+    Select a language from the dropdown in the menu, or use the `Language` selector inside the UI.
+  </Step>
+  <Step title="Toggle roleplay">
+    Click the **Roleplay** button in the settings UI to enable or disable roleplay commands for yourself. When off, you cannot use roleplay commands and others cannot use them on you.
+  </Step>
+</Steps>
+
+### Premium Color
+
+Set a custom hex color for all embeds sent in response to your commands. This changes the accent color of seize's replies to you globally.
+
+```text
+,premiumcolor #ff5555
+```
+
+To remove your custom color:
+
+```text
+,premiumcolor reset
+```
+
+### Premium Footer
+
+Add a custom footer text and icon to every embed sent in response to your commands. Separate text and icon URL with `|`.
+
+```text
+,premiumfooter My Custom Footer | https://example.com/icon.png
+```
+
+To remove your footer:
+
+```text
+,premiumfooter reset
+```
+
+<Note>
+  Premium color and footer require an active seize premium subscription.
+</Note>
+
+## Server Prefix
+
+Change the command prefix for your entire server. By default it is `,`.
+
+<Steps>
+  <Step title="View current prefix">
+    Type `,prefix` to see the current server prefix.
+  </Step>
+  <Step title="Set a new prefix">
+    Administrators can run:
+
+    ```text
+    ,prefix set ;
+    ```
+
+    Prefixes cannot exceed 5 characters.
+  </Step>
+  <Step title="Reset to default">
+    ```text
+    ,prefix reset
+    ```
+  </Step>
+</Steps>
+
+## Self Prefix
+
+Set a personal prefix that only you can use, regardless of the server's prefix. This is useful if you prefer a different prefix than what the server uses.
+
+```text
+,selfprefix !
+```
+
+Remove your self prefix at any time:
+
+```text
+,selfprefix remove
+```
+
+<Note>
+  Self prefix requires an active seize premium subscription and cannot exceed 10 characters.
+</Note>
+
+## Server Appearance (Customize)
+
+If your server has seize premium, administrators with **Manage Server** permission can customize how seize appears in the server.
+
+<AccordionGroup>
+  <Accordion title="customize name">
+    Change seize's server nickname.
+
+    ```text
+    ,customize name seizeBot
+    ```
+
+    Leave blank to reset.
+  </Accordion>
+
+  <Accordion title="customize avatar">
+    Upload an image with the command to set seize's server avatar.
+
+    ```text
+    ,customize avatar
+    ```
+
+    Say `reset` to remove it.
+  </Accordion>
+
+  <Accordion title="customize banner">
+    Upload an image with the command to set seize's server banner.
+
+    ```text
+    ,customize banner
+    ```
+
+    Say `reset` to remove it.
+  </Accordion>
+
+  <Accordion title="customize bio">
+    Change seize's server bio.
+
+    ```text
+    ,customize bio Helping servers since 2024
+    ```
+
+    Say `none` or `reset` to remove.
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Server avatars and banners require the server to have enough Boosts, and seize must have permission to edit its own profile.
+</Warning>
+
+## Quick Reference
+
+| Command | What It Does | Permission |
+| --- | --- | --- |
+| `,settings` | Open the interactive settings menu | None |
+| `,premiumcolor <hex>` | Set your global embed color | Premium |
+| `,premiumcolor reset` | Remove your custom color | Premium |
+| `,premiumfooter <text \| icon>` | Set your global embed footer | Premium |
+| `,premiumfooter reset` | Remove your custom footer | Premium |
+| `,prefix` | View the server prefix | None |
+| `,prefix set <prefix>` | Change the server prefix | Administrator |
+| `,prefix reset` | Reset to `,` | Administrator |
+| `,selfprefix <prefix>` | Set your personal prefix | Premium |
+| `,selfprefix remove` | Remove your personal prefix | Premium |
+| `,customize name [name]` | Change seize's nickname in the server | Manage Server + Premium |
+| `,customize avatar [image]` | Change seize's server avatar | Manage Server + Premium |
+| `,customize banner [image]` | Change seize's server banner | Manage Server + Premium |
+| `,customize bio <text>` | Change seize's server bio | Manage Server + Premium |

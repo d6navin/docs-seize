@@ -1,0 +1,181 @@
+---
+title: "Media editing, memes, and roleplay actions"
+sidebarTitle: "Media & Roleplay"
+description: "Edit images with filters, create memes and quote cards, generate fake message screenshots, and perform roleplay actions like hug, kiss, and slap with seize."
+---
+
+seize offers a broad set of media and roleplay commands to spark creativity and fun in your server. Edit images with filters, create memes and quote cards, generate fake Discord message screenshots, and perform roleplay actions on other members.
+
+## Image editing
+
+Apply filters and effects to any image. You can provide an image URL, attach an image, or reply to a message that contains one.
+
+<AccordionGroup>
+  <Accordion title="Filters and adjustments">
+    - `,media blur [url] <strength>`: Gaussian blur.
+    - `,media pixelate [url]`: Heavy pixelation.
+    - `,media grayscale [url]`: Black and white.
+    - `,media invert [url]`: Invert colors.
+    - `,media sepia [url]`: Vintage sepia tone.
+    - `,media deepfry [url]`: High contrast posterized effect.
+    - `,media toaster [url]`: Warm red-shifted filter.
+    - `,media rainbow [url]`: Horizontal rainbow gradient overlay.
+    - `,media valentine [url]`: Pink/red love filter.
+    - `,media fortune [url]`: Edge enhancement.
+    - `,media circuitboard [url]`: Green circuit-style colorization.
+  </Accordion>
+
+  <Accordion title="Distortions and transforms">
+    - `,media magik [url]`: Vertical stretch and squish.
+    - `,media spin [url]`: Rotate 45 degrees.
+    - `,media swirl [url] <strength>`: Spiral swirl effect.
+    - `,media spread [url] <strength>`: Pixel-sorting spread.
+    - `,media scramble [url]`: Randomly shuffle all pixels.
+    - `,media reverse [url]`: Horizontal flip.
+    - `,media zoom [url]`: Center crop and zoom.
+    - `,media speed [url] <multiplier>`: Stretch horizontally.
+    - `,media wormhole [url]`: Shrink then expand.
+  </Accordion>
+
+  <Accordion title="Overlays and effects">
+    - `,media bloom [url] <radius> <brightness> <sharpness>`: Glow and brightness boost.
+    - `,media zoomblur [url]`: Blur with a zoomed feel.
+    - `,media flag [url]`: Red tint overlay.
+    - `,media flag2 [url]`: Blue tint overlay.
+    - `,media heart [url] [text]`: Red heart overlay.
+    - `,media rubiks [url]`: 3x3 color-block overlay.
+    - `,media speechbubble [url]`: Speech bubble overlay.
+    - `,media book [url]`: Book-style filter.
+    - `,media tattoo [url]`: Tattoo-style effect.
+    - `,media billboard [url]`: Billboard-style frame.
+  </Accordion>
+</AccordionGroup>
+
+### Meme and poster commands
+
+| Command | Description |
+| --- | --- |
+| `,media meme [url] [top] [bottom]` | Classic top/bottom text meme |
+| `,media motivate [url] [top] [bottom]` | Motivational poster with black border |
+| `,media caption [url] <text>` | Bottom-center text caption |
+
+### Utility
+
+| Command | Description |
+| --- | --- |
+| `,media dominant [url]` | Extract the dominant color as HEX, HSL, and RGB |
+| `,media ascii [url]` | Convert an image to ASCII art |
+| `,quote [message_id]` | Generate a stylish quote card from a message |
+| `,image2gif [attachment/url]` | Convert a static image into an animated GIF |
+
+For `,quote`, reply to a message or pass a message ID/link. You can also change the font after the card is generated.
+
+## Fake message generator (Premium)
+
+seize can render realistic-looking fake Discord message screenshots. This is a premium feature.
+
+```text
+,generate fake-message <text> [user] [theme] [options]
+```
+
+Options include dark/light theme, custom fonts (Comic Sans, Impact, Papyrus), mention highlights, reactions, timestamps, fake bot badges, and attached images. You can also export as a GIF.
+
+Example:
+
+```text
+,generate fake-message "Hello world" @isuan dark
+```
+
+## Roleplay actions
+
+Perform animated actions on other server members. Each command tracks how many times you have used it on that person. Some commands are restricted to NSFW channels.
+
+<AccordionGroup>
+  <Accordion title="Friendly actions">
+    - `,hug <user>`
+    - `,kiss <user>`
+    - `,pat <user>`
+    - `,pet <user>`
+    - `,cuddle <user>`
+    - `,snuggle <user>`
+    - `,handhold <user>`
+    - `,wave <user>`
+    - `,wink <user>`
+    - `,cheer <user>`
+    - `,feed <user>`
+    - `,dance <user>`
+    - `,sleep <user>`
+    - `,airkiss <user>`
+    - `,salute <user>`
+  </Accordion>
+
+  <Accordion title="Playful/teasing actions">
+    - `,slap <user>`
+    - `,bonk <user>`
+    - `,poke <user>`
+    - `,pinch <user>`
+    - `,tickle <user>`
+    - `,yeet <user>`
+    - `,shoot <user>`
+    - `,punch <user>`
+    - `,bite <user>`
+    - `,lick <user>`
+    - `,stare <user>`
+    - `,facepalm <user>`
+    - `,laugh <user>`
+    - `,shrug <user>`
+    - `,think <user>`
+    - `,hide <user>`
+    - `,panic <user>`
+    - `,sigh <user>`
+    - `,pout <user>`
+    - `,smug <user>`
+    - `,cry <user>`
+    - `,blush <user>`
+    - `,wag <user>`
+    - `,nuzzle <user>`
+    - `,nom <user>`
+    - `,applause <user>`
+    - `,nya <user>`
+    - `,shake <user>`
+  </Accordion>
+
+  <Accordion title="NSFW actions (NSFW channels only)">
+    - `,fuck <user>`
+    - `,cum <user>`
+    - `,blowjob <user>`
+    - `,anal <user>`
+    - `,pussylick <user>`
+    - `,solo <user>`
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Users can disable roleplay commands directed at them in their personal settings. If a target has opted out, you will not be able to use roleplay on them.
+</Note>
+
+## Other fun commands
+
+A handful of additional entertainment commands live in the main fun cog:
+
+| Command | Description |
+| --- | --- |
+| `,cat` | Random cat picture |
+| `,dog` | Random dog picture |
+| `,image <query>` | Search for images |
+| `,google <query>` | Web search results |
+| `,screenshot <url>` | Capture a website screenshot |
+| `,typingtest` | Test your typing speed |
+| `,mock <text>` | Mock text like tHiS |
+| `,reverse <text>` | Reverse a string |
+| `,clapify <text>` | Add clap emojis |
+| `,leet <text>` | Convert to leet speak |
+| `,rng [min] [max]` | Random number generator |
+| `,say <message>` | Make the bot repeat your message |
+| `,blacktea` | Start a multiplayer word game |
+| `,uwulock <member>` | Force a user to talk in uwu speak |
+| `,brainrotlock <member>` | Force a user to talk in brainrot |
+
+<Warning>
+  `,uwulock` and `,brainrotlock` require the **Manage Messages** permission. They edit the user's messages via webhooks and can be removed with the `remove` subcommand.
+</Warning>

@@ -1,0 +1,65 @@
+---
+title: "Steam Integration: Link Account and View Profile"
+sidebarTitle: "Steam"
+description: "Link your Steam account to seize to view your profile status, game library, total playtime, and look up other linked users in your server."
+---
+
+seize's Steam integration connects your Steam profile to your Discord account so you and others in your server can view your status, games owned, and total playtime at a glance.
+
+## Link Your Steam Account
+
+<Steps>
+  <Step title="Set your account">
+    Run the link command with your Steam profile URL, vanity name, or SteamID64:
+
+    ```text
+    ,steam set <profile url or name>
+    ```
+  </Step>
+  <Step title="Examples">
+    ```text
+    ,steam set https://steamcommunity.com/id/gaben
+    ,steam set gaben
+    ,steam set 76561197960287930
+    ```
+  </Step>
+</Steps>
+
+<Note>
+  seize resolves vanity URLs and SteamID64 values automatically. If your profile is private, some details such as game count and total playtime will not be visible.
+</Note>
+
+## View Your Profile
+
+Once linked, view your Steam profile with:
+
+```text
+,steam [member]
+```
+
+If you mention another member, seize shows their linked Steam profile instead. The output includes:
+
+- Online status and currently playing game
+- Total games owned (public profiles only)
+- Total hours played across your library (public profiles only)
+- Link to view the full profile on Steam
+
+## Unlink Your Account
+
+To remove your Steam link from seize:
+
+```text
+,steam remove
+```
+
+<Warning>
+  Unlinking deletes the stored Steam association. You will need to link again to use `,steam` without specifying a profile URL.
+</Warning>
+
+## Command Reference
+
+| Command | Syntax | Description |
+| --- | --- | --- |
+| `steam` | `,steam [member]` | View your linked Steam profile or another member's |
+| `steam set` | `,steam set <identifier>` | Link your Steam account by URL, vanity name, or SteamID64 |
+| `steam remove` | `,steam remove` | Unlink your Steam account |

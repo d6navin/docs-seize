@@ -1,0 +1,103 @@
+---
+title: "Disable Commands and Customize Moderation Messages"
+sidebarTitle: "Disable & Invoke"
+description: "Disable commands per channel, role, or server with seize, and customize DM and channel messages sent for moderation actions using variables and embed syntax."
+---
+
+seize gives you two related moderation configuration tools: the ability to disable commands or entire modules for specific scopes, and the ability to customize the messages sent when moderation actions are performed.
+
+## Disable commands and modules
+
+You can block commands or whole cogs from running server-wide, in a specific channel, or for a specific role. Server owners and bot owners are always exempt.
+
+<Note>
+  The `disable` and `help` commands are protected and cannot be disabled.
+</Note>
+
+### Quick disable
+
+Run `,disable <command> [channel_or_role]` to disable a command in the current channel by default. If you provide a channel or role, the rule applies there instead.
+
+Examples:
+
+- `,disable ban` disables `,ban` in the current channel.
+- `,disable ban #general` disables `,ban` in #general.
+- `,disable ban @Muted` disables `,ban` for anyone with the Muted role.
+
+### Server-wide disable
+
+Use the `,disable command` subcommand to default to server-wide rules.
+
+- `,disable command ban` disables `,ban` across the entire server.
+- `,disable command ban #bot-commands` disables `,ban` in #bot-commands.
+
+### Disable entire modules
+
+You can disable a whole cog at once.
+
+- `,disable module Leveling` disables the Leveling module server-wide.
+- `,disable module Leveling #bot-commands` disables it only in #bot-commands.
+- `,disable module remove Leveling` re-enables the module.
+- `,disable module list` shows every module-level disable rule.
+
+### Re-enable commands
+
+- `,disable remove ban` removes all disable rules for `,ban`.
+- `,disable remove ban #general` removes only the rule for #general.
+- `,disable reset` clears every disable rule in the server.
+- `,disable reset ban` clears all rules for `,ban` only.
+
+### List active rules
+
+- `,disable list` shows all command-level disable rules.
+- `,disable module list` shows all module-level rules.
+
+## Customize moderation messages
+
+The `,invoke` system lets you configure the DM and channel messages sent for moderation actions. You can use variables, embed tags, and container syntax to match your server's branding.
+
+### Available actions
+
+You can configure messages for: `ban`, `unban`, `tempban`, `softban`, `hardban`, `kick`, `mute`, `unmute`, `runmute`, `rmute`, `imute`, `iunmute`, `jail`, `unjail`, `warn`, `timeout`, and `untimeout`.
+
+### Set a message
+
+Each action has a `message` and a `dm` subcommand. Use `set` to configure and `view` to preview.
+
+- **Channel message:** `,invoke ban message set You were banned from {guild.name} by {moderator} for {reason}`
+- **DM message:** `,invoke ban dm set {embed}$v{title: Banned}$v{description: You have been banned from {guild.name}}`
+
+### Variables you can use
+
+Run `,invoke variables` for the full list. Common variables include:
+
+- **Punishment:** `{reason}`, `{moderator}`, `{moderator.name}`, `{moderator.mention}`
+- **Target:** `{user}`, `{user.name}`, `{user.display_name}`, `{user.mention}`, `{user.id}`, `{user.avatar}`, `{user.created_at}`, `{user.joined_at}`
+- **Server:** `{guild.name}`, `{guild.id}`, `{guild.icon}`, `{guild.member_count}`
+- **Channel:** `{channel.name}`, `{channel.mention}`, `{channel.id}`
+
+### Embed and container tags
+
+seize supports rich formatting tags separated by `$v`:
+
+- `{embed}` or `{container}`
+- `{title: ...}`
+- `{description: ...}`
+- `{color: #hex}`
+- `{field: name && value && inline}`
+- `{thumbnail: ...}`
+- `{image: ...}`
+- `{author: name && icon && url}`
+- `{footer: ...}`
+- `{button: link && Label && https://example.com}`
+
+Use `{container}` instead of `{embed}` for a Components V2 layout.
+
+### Preview a message
+
+- `,invoke ban message view` previews the configured channel message.
+- `,invoke ban dm view` previews the configured DM message.
+
+<Tip>
+  If you do not set custom messages, seize sends clean default responses. Custom messages are purely optional and are useful for servers that want consistent branding or detailed appeal instructions.
+</Tip>

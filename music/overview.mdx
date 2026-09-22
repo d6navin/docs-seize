@@ -1,0 +1,199 @@
+---
+title: "Seize Music: Play and Manage Songs in Voice Channels"
+sidebarTitle: "Music"
+description: "Use Seize's music commands to play songs from Spotify, YouTube, and SoundCloud, manage the queue, apply audio filters, and control playback in your Discord server."
+---
+
+Seize's music system streams high-quality audio into your server's voice channels using Lavalink. You can play tracks from Spotify, YouTube, and SoundCloud, manage a shared queue, and apply real-time audio filters. The bot also displays an interactive Now Playing card with synced lyrics and media controls.
+
+<Note type="info">
+  Most music commands require you to be in the same voice channel as seize to prevent trolling and accidental disruption.
+</Note>
+
+## Getting Started
+
+Before you play music, join a voice channel and make sure seize has permission to connect and speak.
+
+<Steps>
+  <Step title="Join a voice channel">
+    Click any voice channel in your server so your user is connected.
+  </Step>
+  <Step title="Play a song">
+    Type `,play <query>` in any text channel. Seize will join your voice channel and start playback.
+  </Step>
+  <Step title="Control playback">
+    Use `,pause`, `,resume`, `,skip`, `,stop`, or the buttons on the Now Playing message.
+  </Step>
+</Steps>
+
+## Supported Sources
+
+Seize resolves queries through Lavalink and supports the following sources out of the box:
+
+- **Spotify** (tracks, playlists, albums, artists)
+- **YouTube** (videos and playlists)
+- **SoundCloud**
+- **Direct audio attachments** (MP3, WAV, OGG, M4A, FLAC, OPUS, WEBM, AAC) up to 50 MB
+
+If you provide a plain text query, seize searches Spotify by default using `spsearch`.
+
+## Command Reference
+
+<AccordionGroup>
+  <Accordion title="play <query>">
+    **Aliases:** `p` **Description:** Play a song, playlist, or album. You can also attach an audio file. **Usage:**
+
+    - `,play Never Gonna Give You Up`
+    - `,play https://open.spotify.com/track/...`
+    - `,play` (with an audio file attached) **Permissions:** None (must be in a voice channel)
+  </Accordion>
+
+  <Accordion title="pause">
+    **Description:** Pause the current track. **Usage:** `,pause` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="resume">
+    **Description:** Resume a paused track. **Usage:** `,resume` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="skip">
+    **Description:** Skip the currently playing track. **Usage:** `,skip` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="stop">
+    **Description:** Stop playback, clear the queue, and disconnect from the voice channel. If 24/7 mode is enabled, the bot stays connected. **Usage:** `,stop` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="queue [page]">
+    **Aliases:** `q` **Description:** View the current song queue with an interactive paginated message. **Usage:** `,queue` **Permissions:** None
+  </Accordion>
+
+  <Accordion title="queue remove <index>">
+    **Description:** Remove a track from the queue by its index number. **Usage:** `,queue remove 3` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="currentsong">
+    **Aliases:** `current` **Description:** Show the currently playing track with the interactive Now Playing card. **Usage:** `,currentsong` **Permissions:** None
+  </Accordion>
+
+  <Accordion title="volume [0-100]">
+    **Aliases:** `vol` **Description:** View or set the playback volume. **Usage:**
+
+    - `,volume` (show current volume)
+    - `,volume 50` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="seek <position>">
+    **Description:** Jump to a specific timestamp in the current track. **Usage:**
+
+    - `,seek 1:30`
+    - `,seek 2:15:00`
+    - `,seek 90` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="loop">
+    **Description:** Toggle looping for the current track. **Usage:** `,loop` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="shuffle">
+    **Description:** Randomize the order of tracks in the queue. **Usage:** `,shuffle` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="search <query>">
+    **Description:** Search for tracks and display the top 10 results. **Usage:** `,search Rich Amiri` **Permissions:** None
+  </Accordion>
+
+  <Accordion title="remove <index>">
+    **Description:** Remove a track from the queue by index. This is a shortcut for `queue remove`. **Usage:** `,remove 3` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="clearqueue">
+    **Description:** Remove every track from the queue. **Usage:** `,clearqueue` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="restart">
+    **Description:** Restart the current track from the beginning. **Usage:** `,restart` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="lyrics">
+    **Description:** Toggle synced lyrics on the Now Playing card. **Usage:** `,lyrics` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="bassboost <0-5>">
+    **Description:** Apply an equalizer bass boost filter. Set to 0 to disable. **Usage:** `,bassboost 3` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="nightcore">
+    **Description:** Toggle a nightcore filter (speed and pitch increased). **Usage:** `,nightcore` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="vaporwave">
+    **Description:** Toggle a vaporwave filter (speed and pitch decreased). **Usage:** `,vaporwave` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="resetfilters">
+    **Description:** Remove all active audio filters. **Usage:** `,resetfilters` **Permissions:** Must be in the same voice channel as seize
+  </Accordion>
+
+  <Accordion title="247">
+    **Description:** Keep seize connected to your voice channel permanently. Toggle on or off. Requires **Server Premium** and the **Manage Server** permission. **Usage:** `,247` **Permissions:** `Manage Server`
+  </Accordion>
+
+  <Accordion title="automix [seconds]">
+    **Description:** Blend tracks into each other like a DJ. Toggle on/off, or set blend length in seconds. Requires **Server Premium** and the **Manage Server** permission. **Usage:**
+
+    - `,automix`
+    - `,automix 8` **Permissions:** `Manage Server`
+  </Accordion>
+</AccordionGroup>
+
+## Now Playing Card
+
+When a track starts, seize sends an interactive Now Playing message in the text channel. The card shows:
+
+- Track title with a link
+- Artist name
+- Progress bar with elapsed and total time
+- Optional synced lyrics line
+
+You can use the built-in buttons to rewind, pause/resume, skip, toggle loop, shuffle the queue, or toggle lyrics without typing any commands.
+
+<Tip>
+  If synced lyrics are not available for a track, seize will show a short plain-text preview instead.
+</Tip>
+
+## Audio Filters
+
+Seize supports real-time Lavalink audio filters. You can stack filters, but some filters use the same Lavalink filter slot (for example, nightcore and vaporwave both use `timescale`), so enabling one will override the other. Use `,resetfilters` to clear everything and return to normal playback.
+
+| Filter | What it does |
+| --- | --- |
+| `bassboost` | Boosts low frequencies across 3 bands (levels 0-5) |
+| `nightcore` | Increases speed and pitch for an upbeat effect |
+| `vaporwave` | Decreases speed and pitch for a slowed-down effect |
+| `resetfilters` | Removes all active filters |
+
+## 24/7 Mode and AutoMix (Premium)
+
+Server Premium unlocks advanced music features for your guild.
+
+- **24/7 Mode:** Keeps seize permanently connected to a voice channel, even when nothing is playing.
+- **AutoMix:** Blends the end of one track into the beginning of the next for a seamless DJ-like experience. You can configure the blend length in seconds.
+
+Both features require the **Manage Server** permission and an active Server Premium subscription. Learn more on the [Premium overview](/premium/overview).
+
+## Common Issues
+
+<AccordionGroup>
+  <Accordion title="No tracks found">
+    If your query returns "No tracks found," try rephrasing the search, using a direct URL, or checking that the Spotify/YouTube link is public and valid.
+  </Accordion>
+
+  <Accordion title="Bot won't connect">
+    Make sure seize has the **Connect** and **Speak** permissions in the voice channel. Also verify your server's region isn't blocking voice connections.
+  </Accordion>
+
+  <Accordion title="Filters don't seem to work">
+    Audio filters only apply while a track is actively playing. If you switch between nightcore and vaporwave, the last one you enabled takes precedence because they share the same filter slot.
+  </Accordion>
+</AccordionGroup>

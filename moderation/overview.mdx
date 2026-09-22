@@ -1,0 +1,42 @@
+---
+title: "Seize Moderation Suite Overview"
+sidebarTitle: "Overview"
+description: "Explore seize's moderation toolkit including bans, kicks, mutes, warns, purge, roles, and channel management to keep your Discord server safe and clean."
+---
+
+seize's moderation suite gives you everything you need to manage your Discord community. From basic punishments like banning and kicking to advanced tools such as jailing, hardbanning, and message purging, you can enforce rules with precision.
+
+<CardGroup cols={2}>
+  <Card title="Commands" icon="terminal" href="/moderation/commands">
+    Full reference for every moderation command, including usage syntax and required permissions.
+  </Card>
+
+  <Card title="Anti-Selfbot" icon="bot" href="/moderation/anti-selfbot">
+    Detect and flag selfbot-like behavior using scoring and staff review.
+  </Card>
+
+  <Card title="Logging" icon="scroll" href="/moderation/logging">
+    Configure audit logging for messages, members, roles, channels, invites, and more.
+  </Card>
+
+  <Card title="Disable & Invoke" icon="toggle-left" href="/moderation/disable-invoke">
+    Disable commands per channel or server, and customize moderation action messages.
+  </Card>
+</CardGroup>
+
+## What the moderation suite covers
+
+The moderation cog handles everyday enforcement tasks:
+
+- **Punishments:** ban, tempban, softban, kick, mute (timeout), unban, unmute
+- **Advanced detention:** jail and unjail with automatic role restoration
+- **Warnings:** issue, remove, clear, and list warnings with unique IDs
+- **Message cleanup:** purge by amount, user, content, embeds, files, bots, links, and more
+- **Role management:** add, remove, create, delete, edit, mass-assign, temproles, restore on rejoin
+- **Channel controls:** lock, unlock, slowmode, topic, nuke, lockdown, NSFW toggle, spoiler toggle
+- **Server cleanup:** clear invites, strip roles, dump role members, manage emojis and stickers
+- **Cases and stats:** view case history, edit reasons, delete cases, and check moderator activity
+
+<Note>
+  All moderation commands respect role hierarchy. seize will prevent you from moderating members with a higher or equal top role, and it will not act on the server owner.
+</Note>

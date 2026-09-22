@@ -1,0 +1,277 @@
+---
+title: "Utility Commands for Everyday Server Tasks"
+sidebarTitle: "Overview"
+description: "Discover seize's utility commands including translation, reminders, snipes, AFK, crypto lookups, image tools, and server customization in one place."
+---
+
+seize's utilities help you run a smoother Discord server, from translating messages and setting reminders, to recovering deleted messages and customizing the bot's appearance. Every command is available via the `,` prefix or slash commands.
+
+Use the cards below to dive into each subtopic.
+
+<CardGroup cols={2}>
+  <Card title="Settings" icon="gear" href="/utilities/settings">
+    Change your personal language, roleplay preferences, and embed colors.
+  </Card>
+
+  <Card title="Privacy" icon="shield" href="/utilities/privacy">
+    Opt out of tracking and delete stored activity data permanently.
+  </Card>
+
+  <Card title="Self-Purge" icon="trash" href="/utilities/self-purge">
+    Bulk delete your own messages by count, time, or content filters.
+  </Card>
+</CardGroup>
+
+## Text & Messaging
+
+<AccordionGroup>
+  <Accordion title="translate">
+    **Syntax:** `,translate <language_code> [text]` or reply to a message.
+
+    Translate text or a replied message into another language. Use `,languages` to see supported codes.
+  </Accordion>
+
+  <Accordion title="languages">
+    **Syntax:** `,languages`
+
+    List all supported ISO-639 language codes for translation.
+  </Accordion>
+
+  <Accordion title="tts">
+    **Syntax:** `,tts [language_code] <text>` or reply to a message.
+
+    Convert text into a spoken MP3 audio file. Text must be under 200 characters. Supports codes like `es`, `fr`, `ja`.
+  </Accordion>
+
+  <Accordion title="ocr">
+    **Syntax:** `,ocr` (with an image attached or reply to an image)
+
+    Extract text from an image using optical character recognition.
+  </Accordion>
+</AccordionGroup>
+
+## Snipe & Recovery
+
+<AccordionGroup>
+  <Accordion title="snipe">
+    **Syntax:** `,snipe [index]`
+
+    Reveal recently deleted messages in the current channel. Optional index (1-20) for older deletions.
+  </Accordion>
+
+  <Accordion title="editsnipe">
+    **Syntax:** `,editsnipe [index]`
+
+    Show recently edited messages, comparing the before and after text.
+  </Accordion>
+
+  <Accordion title="reactionsnipe">
+    **Syntax:** `,reactionsnipe [index]`
+
+    Show recently removed reactions, with a link to the message.
+  </Accordion>
+
+  <Accordion title="clearsnipes">
+    **Syntax:** `,clearsnipes`
+
+    **Permission:** Manage Messages
+
+    Clear all snipe caches for the current channel.
+  </Accordion>
+</AccordionGroup>
+
+## Presence & Alerts
+
+<AccordionGroup>
+  <Accordion title="afk">
+    **Syntax:** `,afk [reason]`
+
+    Set an AFK status. seize will notify anyone who mentions you, and automatically remove AFK when you post again.
+  </Accordion>
+
+  <Accordion title="reminder">
+    **Syntax:** `,reminder add <duration> <text>` — `,reminder cancel <id>` — `,reminder list`
+
+    Set timed reminders (minimum 1 minute, supports `1h`, `2d`, `1w`, etc.). seize DMs you when the time is up.
+  </Accordion>
+
+  <Accordion title="highlight">
+    **Syntax:** `,highlight add <keyword>` — `,highlight remove <keyword>` — `,highlight list` — `,highlight clear`
+
+    Get DM notifications when a keyword is mentioned in a server. Up to 20 keywords per server. If you are typing in the channel, the DM is skipped.
+  </Accordion>
+</AccordionGroup>
+
+## Server Customization
+
+<AccordionGroup>
+  <Accordion title="prefix">
+    **Syntax:** `,prefix` — `,prefix set <prefix>` — `,prefix reset`
+
+    **Permission:** Administrator
+
+    View or change the server's command prefix (max 5 characters).
+  </Accordion>
+
+  <Accordion title="selfprefix">
+    **Syntax:** `,selfprefix [prefix]` — `,selfprefix remove`
+
+    Set a custom prefix that only you can use (requires premium, max 10 characters).
+  </Accordion>
+
+  <Accordion title="customize">
+    **Syntax:** `,customize name [name]` — `,customize avatar [image]` — `,customize banner [image]` — `,customize bio <text>`
+
+    **Permission:** Manage Server (premium required)
+
+    Change seize's server-specific nickname, avatar, banner, or bio.
+  </Accordion>
+</AccordionGroup>
+
+## User Management
+
+<AccordionGroup>
+  <Accordion title="forcenick">
+    **Syntax:** `,forcenick <member> <nickname>` — `,forcenick remove <member>` — `,forcenick list` — `,forcenick clear`
+
+    **Permission:** Manage Nicknames
+
+    Force a member to keep a specific nickname. seize re-applies it automatically if they change it.
+  </Accordion>
+
+  <Accordion title="picperms">
+    **Syntax:** `,picperms <member>` — `,picperms setup` — `,picperms reset`
+
+    **Permission:** Manage Roles
+
+    Toggle a "pic perms" role that grants embed links and attach files permissions.
+  </Accordion>
+</AccordionGroup>
+
+## Image & Media Tools
+
+<AccordionGroup>
+  <Accordion title="enlarge">
+    **Syntax:** `,enlarge <emoji>`
+
+    Enlarge any custom or Unicode emoji to a full-size image.
+  </Accordion>
+
+  <Accordion title="palette">
+    **Syntax:** `,palette [image_url]` or upload an image.
+
+    Extract the five dominant colors from an image with hex and RGB values. Requires user premium.
+  </Accordion>
+
+  <Accordion title="backgroundremove">
+    **Syntax:** `,backgroundremove [image]` or upload an image.
+
+    Remove the background from an image. Requires user premium.
+  </Accordion>
+
+  <Accordion title="videotogif">
+    **Syntax:** `,videotogif [video]` or upload a video.
+
+    Convert an attached MP4, MOV, or WEBM to GIF. Requires user premium.
+  </Accordion>
+
+  <Accordion title="toaudio">
+    **Syntax:** `,toaudio [video]` or upload a video.
+
+    Rip the audio track from a video as an MP3. Requires user premium.
+  </Accordion>
+</AccordionGroup>
+
+## Crypto
+
+<AccordionGroup>
+  <Accordion title="crypto">
+    **Syntax:** `,crypto <symbol>` — `,crypto convert <amount> <from> <to>` — `,crypto price <symbol> [amount]`
+
+    View cryptocurrency prices, percentage changes, and perform conversions via CoinMarketCap.
+  </Accordion>
+</AccordionGroup>
+
+## Auto-Translate & Bump Reminder
+
+<AccordionGroup>
+  <Accordion title="autotranslate">
+    **Syntax:** `,autotranslate add <channel> <language>` — `,autotranslate remove <channel>` — `,autotranslate list` — `,autotranslate clear`
+
+    **Permission:** Manage Server (premium required)
+
+    Automatically translate all messages in a channel to a chosen language.
+  </Accordion>
+
+  <Accordion title="bumpreminder">
+    **Syntax:** `,bumpreminder channel <channel>` — `,bumpreminder role <role>` — `,bumpreminder message <text>` — `,bumpreminder toggle <on/off>` — `,bumpreminder config`
+
+    **Permission:** Manage Server
+
+    Configure Disboard bump reminders with ping roles and custom messages.
+  </Accordion>
+</AccordionGroup>
+
+## History & Lookup
+
+<AccordionGroup>
+  <Accordion title="namehistory">
+    **Syntax:** `,namehistory [member]` — `,namehistory clear`
+
+    View a user's past usernames and nicknames, or clear your own history.
+  </Accordion>
+
+  <Accordion title="avatarhistory">
+    **Syntax:** `,avatarhistory [member]` — `,avatarhistory clear`
+
+    Browse a user's past avatars with pagination. Clear your own history at any time.
+  </Accordion>
+
+  <Accordion title="seen">
+    **Syntax:** `,seen <member>`
+
+    Check when a member was last seen talking in the current channel.
+  </Accordion>
+</AccordionGroup>
+
+## Embed & Message Tools
+
+<AccordionGroup>
+  <Accordion title="copyembed">
+    **Syntax:** `,copyembed <message_link_or_id>` or reply to a message.
+
+    **Permission:** Manage Messages
+
+    Serialize an embed to raw code you can reuse.
+  </Accordion>
+
+  <Accordion title="copycontainer">
+    **Syntax:** `,copycontainer <message_id>` or reply to a message.
+
+    **Permission:** Manage Messages
+
+    Copy a Discord container layout to a reusable script.
+  </Accordion>
+
+  <Accordion title="pin / unpin">
+    **Syntax:** `,pin` (reply or message ID) — `,unpin` (reply or message ID)
+
+    **Permission:** Manage Messages
+
+    Pin or unpin a message in the current channel.
+  </Accordion>
+</AccordionGroup>
+
+## Bot Utilities
+
+<AccordionGroup>
+  <Accordion title="getbotinvite">
+    **Syntax:** `,getbotinvite <bot_user>`
+
+    Generate an invite link for any bot using its user ID or mention.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Commands marked as premium require an active seize premium subscription. Some features may be limited by rate cooldowns to keep the service stable.
+</Note>

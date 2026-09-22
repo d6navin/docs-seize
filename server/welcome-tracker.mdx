@@ -1,0 +1,198 @@
+---
+title: "Welcome Messages, Invite Tracking, and Server Extras"
+sidebarTitle: "Welcome & Tracker"
+description: "Configure welcome and leave messages, invite tracking, activity stats, timers, snapshots, badges, ping-on-join, booster roles, vanity roles, and starboard."
+---
+
+seize includes a broad set of server extras for onboarding new members, tracking activity, and rewarding your community. This page collects the welcome, tracker, activity, timer, snapshot, badge, ping-on-join, webhook, starboard, booster role, and vanity role features in one place.
+
+## Welcome and leave messages
+
+Configure messages that fire when members join or leave. See [Automation](/server/automation) for the full auto-responder toolkit and `,welcome` command family used for greeting flows.
+
+## Invite tracking
+
+Track who invited whom, reward top inviters, and manage bonus invites.
+
+<AccordionGroup>
+  <Accordion title=",invites">
+    **Usage:** `,invites [member]` View invite count for yourself or another member.
+  </Accordion>
+
+  <Accordion title=",invites enable / disable">
+    **Permission:** Manage Guild. Turn invite tracking on or off in the server.
+  </Accordion>
+
+  <Accordion title=",invites leaderboard">
+    Show the top inviters in the server.
+  </Accordion>
+
+  <Accordion title=",invites history">
+    **Usage:** `,invites history [member]` View who a member has invited.
+  </Accordion>
+
+  <Accordion title=",invites whoinvited">
+    **Usage:** `,invites whoinvited [member]` See who invited a specific member.
+  </Accordion>
+
+  <Accordion title=",invites codes">
+    List invite codes and their usage.
+  </Accordion>
+
+  <Accordion title=",invites rewards">
+    Manage role rewards for hitting invite thresholds. Subcommands: `add <threshold> <role>`, `remove <threshold> <role>`, `clear`.
+  </Accordion>
+
+  <Accordion title=",invites bonus">
+    Adjust bonus invite counts. Subcommands: `add <member> <amount>`, `remove <member> <amount>`.
+  </Accordion>
+
+  <Accordion title=",invites reset / resetall">
+    Reset a single member's or all members' invite counts.
+  </Accordion>
+
+  <Accordion title=",invites config">
+    View or change invite tracking settings including toggle, join message, and fake-invite threshold in days.
+  </Accordion>
+</AccordionGroup>
+
+## Activity stats
+
+Analyze server engagement across messages, voice, reactions, and growth.
+
+| Command | Description |
+| --- | --- |
+| `,activity server [period]` | Server-wide activity for the period (default 7d) |
+| `,activity user [member] [period]` | Activity for a single member |
+| `,activity messages [period]` | Message counts by channel |
+| `,activity voice [period]` | Voice minutes leaderboard |
+| `,activity channel <channel> [period]` | Deep-dive on one channel |
+| `,activity reactions [period]` | Reaction leaderboard |
+| `,activity growth [period]` | Join and leave trends |
+
+Periods accept common shorthand such as `1d`, `7d`, `30d`.
+
+## Scheduled channel timers
+
+Post recurring messages on an interval.
+
+| Command | Usage | Permission |
+| --- | --- | --- |
+| `,timer add` | `,timer add <channel> <interval_minutes> <message>` | Manage Guild |
+| `,timer remove` | `,timer remove <channel>` | Manage Guild |
+| `,timer list` | `,timer list` | Manage Guild |
+| `,timer view` | `,timer view <channel>` | Manage Guild |
+| `,timer activity` | `,timer activity <channel> <on/off>` | Manage Guild |
+
+The `activity` toggle pauses a timer unless there is recent chat activity in the channel.
+
+## Server snapshots
+
+Snapshots save channel, role, category, and permission layouts so you can restore or clone a configuration.
+
+| Command | Usage | Permission |
+| --- | --- | --- |
+| `,snapshot create` | `,snapshot create [name]` | Administrator |
+| `,snapshot list` | `,snapshot list` | Administrator |
+| `,snapshot info` | `,snapshot info <identifier>` | Administrator |
+| `,snapshot rename` | `,snapshot rename <identifier> <new_name>` | Administrator |
+| `,snapshot delete` | `,snapshot delete <identifier>` | Administrator |
+| `,snapshot restore` | `,snapshot restore <identifier>` | Administrator |
+| `,snapshot export` | `,snapshot export <identifier>` | Administrator |
+| `,snapshot import` | `,snapshot import <attachment> [name]` | Administrator |
+
+<Warning>
+  Restoring a snapshot can rebuild channels and roles. Preview the snapshot with `info` first.
+</Warning>
+
+## Badge system
+
+Announce when members earn specific roles.
+
+| Command | Description |
+| --- | --- |
+| `,badge enable / disable` | Turn badge announcements on or off |
+| `,badge channel <channel>` | Set the announcement channel |
+| `,badge message <script>` | Custom announcement template |
+| `,badge message clear / view` | Reset or preview the template |
+| `,badge role add <role>` | Watch this role for badge announcements |
+| `,badge role remove <role>` | Stop watching a role |
+| `,badge role list` | List watched roles |
+| `,badge sync` | Force a sync of current members |
+| `,badge config` | Show current setup |
+
+## Ping on join
+
+Ping a channel briefly whenever a new member joins, useful for staff notifications.
+
+| Command | Usage |
+| --- | --- |
+| `,pingonjoin add` | `,pingonjoin add <channel>` |
+| `,pingonjoin remove` | `,pingonjoin remove <channel>` |
+| `,pingonjoin list` | `,pingonjoin list` |
+| `,pingonjoin reset` | `,pingonjoin reset` |
+
+## Webhooks
+
+Create and manage webhooks from Discord chat.
+
+| Command | Usage |
+| --- | --- |
+| `,webhook create` | `,webhook create [channel] [name]` |
+| `,webhook delete` | `,webhook delete <code>` |
+| `,webhook send` | `,webhook send <code> <message>` |
+| `,webhook edit name` | `,webhook edit name <code> <name>` |
+| `,webhook edit avatar` | `,webhook edit avatar <code> [url]` |
+| `,webhook list` | `,webhook list` |
+
+## Server logs
+
+Push audit-style logs to designated channels. See [Logging](/moderation/logging) for the full logging feature set.
+
+| Command | Usage |
+| --- | --- |
+| `,logs add` | `,logs add <channel>` |
+| `,logs remove` | `,logs remove <channel>` |
+| `,logs disable` | `,logs disable` |
+
+## Starboard
+
+Highlight popular messages once they receive enough star reactions.
+
+| Command | Usage |
+| --- | --- |
+| `,starboard channel` | `,starboard channel <channel>` |
+| `,starboard threshold` | `,starboard threshold <amount>` |
+| `,starboard emoji` | `,starboard emoji <emoji>` |
+| `,starboard reset` | `,starboard reset` |
+
+## Booster roles
+
+Let server boosters manage a personal colored role.
+
+| Command | Description |
+| --- | --- |
+| `,boosterrole base <role>` | Set the position anchor for booster roles |
+| `,boosterrole create <name>` | Create your own booster role |
+| `,boosterrole rename <name>` | Rename your booster role |
+| `,boosterrole color <color> [second_color]` | Set a solid or gradient color |
+| `,boosterrole icon <emoji>` | Set a role icon |
+| `,boosterrole icon remove` | Clear the role icon |
+| `,boosterrole share <member>` | Share your role with another member |
+| `,boosterrole share remove <member>` | Stop sharing |
+| `,boosterrole delete` | Delete your booster role |
+| `,boosterrole organize` | Re-sort booster roles by hierarchy |
+| `,boosterrole cleanup` | Remove abandoned booster roles |
+| `,boosterrole dominant` | Set the dominant color from your avatar |
+| `,boosterrole config` | Show current booster role setup |
+
+## Vanity roles
+
+Reward members who put a vanity phrase in their status with a role.
+
+| Command | Usage |
+| --- | --- |
+| `,vanity setup` | `,vanity setup <vanity> <role>` |
+| `,vanity channel` | `,vanity channel <channel>` |
+| `,vanity message` | `,vanity message <message>` |
+| `,vanity remove` | `,vanity remove` |

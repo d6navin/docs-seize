@@ -1,0 +1,140 @@
+---
+title: "Xbox Live and Social Platform Lookups"
+sidebarTitle: "Xbox and Socials"
+description: "Look up Xbox gamertags, social media profiles, and repost content from TikTok, Instagram, Twitter/X, YouTube, Roblox, and Minecraft with seize."
+---
+
+seize can look up profiles across Xbox Live and major social platforms. You can link your Xbox gamertag, search any tag directly, and fetch profiles or posts from TikTok, Instagram, Twitter/X, YouTube, Roblox, and Minecraft.
+
+## Xbox Live
+
+### Link Your Gamertag
+
+<Steps>
+  <Step title="Set your gamertag">
+    ```text
+    ,xbox set <gamertag>
+    ```
+  </Step>
+  <Step title="View your profile">
+    Once linked, view it anytime:
+
+    ```text
+    ,xbox [member]
+    ```
+  </Step>
+</Steps>
+
+The profile card shows your gamerscore, account tier, tenure, location, and a link to your Xbox profile.
+
+### Look Up Any Gamertag
+
+To search for a gamertag without linking it:
+
+```text
+,xbox lookup <gamertag>
+```
+
+<Note>
+  seize automatically handles classic gamertags and modern suffix-based tags by searching the Xbox API directly.
+</Note>
+
+### Unlink Your Gamertag
+
+```text
+,xbox remove
+```
+
+## Social Media Lookups
+
+seize supports profile lookups and content reposting for several platforms.
+
+<AccordionGroup>
+  <Accordion title="TikTok">
+    **Profile:** `,tiktok <username>`
+
+    **Repost a video:** `,tiktok repost <url>` or just paste a TikTok link in chat (if auto-reposter is enabled)
+
+    **Random trending:** `,tiktok fyp`
+  </Accordion>
+
+  <Accordion title="Instagram">
+    **Profile:** `,instagram <username>`
+
+    **Repost a post or reel:** `,instagram repost <url>` or paste an Instagram link in chat (if auto-reposter is enabled)
+
+    **Random trending reel:** `,instagram reels`
+  </Accordion>
+
+  <Accordion title="Twitter / X">
+    **Profile:** `,twitter <username>`
+
+    **Fetch a tweet:** `,twitter tweet <url>`
+  </Accordion>
+
+  <Accordion title="YouTube">
+    **Channel lookup:** `,youtube <handle>`
+
+    Example: `,youtube @isu9n`
+  </Accordion>
+
+  <Accordion title="Roblox">
+    **Profile:** `,roblox <username>`
+
+    Shows display name, follower count, friends, online status, and current game.
+  </Accordion>
+
+  <Accordion title="Minecraft">
+    **Profile:** `,minecraft <username>`
+
+    Shows UUID, skin model, and a rendered skin preview.
+  </Accordion>
+</AccordionGroup>
+
+## Auto-Reposting
+
+When enabled, seize automatically reposts TikTok and Instagram links shared in your server as native Discord embeds with media files.
+
+<Steps>
+  <Step title="Enable Instagram auto-repost">
+    ```text
+    ,instagram toggle on
+    ```
+  </Step>
+  <Step title="Enable TikTok auto-repost">
+    ```text
+    ,tiktok toggle on
+    ```
+  </Step>
+</Steps>
+
+<Tip>
+  Auto-repost toggles require the **Manage Server** permission and a premium subscription.
+</Tip>
+
+## Command Reference
+
+### Xbox
+
+| Command | Syntax | Description |
+| --- | --- | --- |
+| `xbox` | `,xbox [member]` | View your linked Xbox profile or another member's |
+| `xbox lookup` | `,xbox lookup <gamertag>` | Look up any Xbox gamertag |
+| `xbox set` | `,xbox set <gamertag>` | Link your Xbox gamertag |
+| `xbox remove` | `,xbox remove` | Unlink your Xbox account |
+
+### Socials
+
+| Command | Syntax | Description |
+| --- | --- | --- |
+| `tiktok` | `,tiktok <username>` | View a TikTok profile |
+| `tiktok repost` | `,tiktok repost <url>` | Repost a TikTok video natively |
+| `tiktok fyp` | `,tiktok fyp` | Repost a random trending TikTok |
+| `instagram` | `,instagram <username>` | View an Instagram profile |
+| `instagram repost` | `,instagram repost <url>` | Repost an Instagram post or reel natively |
+| `instagram reels` | `,instagram reels` | Repost a random trending Instagram reel |
+| `twitter` | `,twitter <username>` | View a Twitter/X profile |
+| `twitter tweet` | `,twitter tweet <url>` | Fetch a single tweet by URL |
+| `youtube` | `,youtube <handle>` | View a YouTube channel profile |
+| `roblox` | `,roblox <username>` | View a Roblox user profile |
+| `minecraft` | `,minecraft <username>` | View a Minecraft player profile |

@@ -1,0 +1,119 @@
+---
+title: "AI chat, image generation, and transcription tools"
+sidebarTitle: "AI"
+description: "Use seize's AI tools to ask questions, generate images, convert text to speech, transcribe audio, extract text from images, and summarize conversations."
+---
+
+seize's AI commands are powered by the Navy API and give your server access to chat, image generation, text-to-speech, transcription, and more. You can switch personas, summarize conversations, and even digest recent channel activity.
+
+<Note>
+  AI commands have rate limits. Standard users get higher limits than free-tier users. Premium users receive the fastest cooldowns.
+</Note>
+
+## Ask the AI
+
+Get answers to questions with contextual memory per channel.
+
+```text
+,ai ask <prompt>
+```
+
+Example:
+
+```text
+,ai ask What is the capital of Mongolia?
+```
+
+seize remembers recent messages in the channel so follow-up questions feel natural. To view how much context is stored, run `,ai history`.
+
+## Switch personas
+
+Change the AI's tone for the current channel. Available personas include:
+
+- **default**: Helpful, polite, and friendly
+- **sarcastic**: Witty with dry humor
+- **pirate**: Jovial pirate captain slang
+- **concise**: Brief and direct answers
+- **professional**: Formal workplace tone
+
+```text
+,ai persona <name>
+```
+
+View available options with `,ai persona`.
+
+## Regenerate and summarize
+
+| Command | Description |
+| --- | --- |
+| `,ai regenerate` | Retry the last AI response |
+| `,ai summarize` | Summarize the current AI conversation |
+| `,ai digest [limit]` | Summarize recent real messages in the channel (admin only) |
+| `,ai history` | Show model, persona, and message count for the channel |
+| `,ai clear` | Wipe the conversation history (manage messages permission) |
+
+## Generate images
+
+Create images from text prompts using the Flux model.
+
+```text
+,ai imagine <prompt>
+```
+
+Example:
+
+```text
+,ai imagine a fox reading a book in a library, watercolor style
+```
+
+Prompts are limited to 500 characters.
+
+## Text to speech
+
+Convert text into spoken audio delivered as an MP3 file.
+
+```text
+,ai tts <text>
+```
+
+Text is limited to 500 characters.
+
+## Transcribe audio
+
+Convert voice messages or audio files into text.
+
+```text
+,ai transcribe <attachment>
+```
+
+Attach a valid audio or video file up to 20 MB.
+
+## Extract text from images (OCR)
+
+Pull readable text out of an uploaded image.
+
+```text
+,ai ocr <image attachment>
+```
+
+Images are limited to 20 MB.
+
+## Quick reference
+
+| Command | What it does | Limit |
+| --- | --- | --- |
+| `,ai ask <prompt>` | Chat with the AI | 800 chars |
+| `,ai imagine <prompt>` | Generate an image | 500 chars |
+| `,ai tts <text>` | Text-to-speech audio | 500 chars |
+| `,ai transcribe <audio>` | Audio to text | 20 MB |
+| `,ai ocr <image>` | Image to text | 20 MB |
+| `,ai regenerate` | Retry the last response |  |
+| `,ai summarize` | Summarize AI chat |  |
+| `,ai digest [limit]` | Summarize real chat (admin) | 5 to 200 messages |
+| `,ai persona <name>` | Switch AI tone |  |
+| `,ai history` | View channel AI status |  |
+| `,ai clear` | Clear channel AI history |  |
+
+<Tip>
+  For a standalone command without the `ai` prefix, premium users can also use `,aiask <prompt>`.
+</Tip>

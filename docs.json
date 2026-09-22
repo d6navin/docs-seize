@@ -1,53 +1,110 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "almond",
+  "name": "seize",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#5B7FD9",
+    "light": "#8AA9F0",
+    "dark": "#2E8B3D"
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
+    "groups": [
       {
-        "group": "Getting Started",
+        "group": "Get Started",
+        "icon": "rocket",
         "pages": [
           "index",
-          "quickstart"
+          "quickstart",
+          "configuration"
+        ]
+      },
+      {
+        "group": "Moderation",
+        "icon": "shield-halved",
+        "pages": [
+          "moderation/overview",
+          "moderation/commands",
+          "moderation/anti-selfbot",
+          "moderation/logging",
+          "moderation/disable-invoke"
+        ]
+      },
+      {
+        "group": "Server Management",
+        "icon": "server",
+        "pages": [
+          "server/overview",
+          "server/antinuke-antiraid",
+          "server/automation",
+          "server/voicemaster",
+          "server/tickets-giveaways",
+          "server/welcome-tracker"
+        ]
+      },
+      {
+        "group": "Entertainment",
+        "icon": "gamepad",
+        "pages": [
+          "entertainment/overview",
+          "entertainment/lastfm",
+          "entertainment/economy",
+          "entertainment/ai",
+          "entertainment/media-roleplay",
+          "entertainment/counting-birthday"
+        ]
+      },
+      {
+        "group": "Information",
+        "icon": "circle-info",
+        "pages": [
+          "information/overview",
+          "information/osu",
+          "information/steam",
+          "information/xbox-socials"
+        ]
+      },
+      {
+        "group": "Music",
+        "icon": "music",
+        "pages": [
+          "music/overview"
+        ]
+      },
+      {
+        "group": "Utilities",
+        "icon": "wrench",
+        "pages": [
+          "utilities/overview",
+          "utilities/settings",
+          "utilities/privacy",
+          "utilities/self-purge"
+        ]
+      },
+      {
+        "group": "Premium",
+        "icon": "crown",
+        "pages": [
+          "premium/overview"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo.png"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://discord.gg/seizeapp"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Invite Bot",
+      "href": "https://discord.com/oauth2/authorize"
     }
   },
   "contextual": {
@@ -55,18 +112,12 @@
       "copy",
       "view",
       "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
+      "claude"
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "discord": "https://discord.gg/seizeapp"
     }
   }
 }

@@ -1,0 +1,89 @@
+---
+title: "Set Up Server Audit Logging with Seize"
+sidebarTitle: "Logging"
+description: "Configure seize to log Discord server events including messages, members, roles, channels, voice, and invites using per-event channels and custom colors."
+---
+
+seize's logging system captures dozens of server events and sends them to the channels you choose. You can route events individually, assign custom accent colors, and ignore specific members or channels so your log feeds stay clean.
+
+## Enable logging
+
+<Steps>
+  <Step title="Turn logging on">
+    Run `,log enable` to globally enable the system using any existing configuration.
+  </Step>
+  <Step title="Bulk-configure with a channel">
+    Run `,log enable --default #logs` to route the default event set to a channel. Run `,log enable --all #logs` to route every supported event to a channel.
+  </Step>
+</Steps>
+
+If you want to exclude voice events during bulk setup, use `,log channel #logs exclude:voice_join,voice_leave`.
+
+## Manage events per channel
+
+- **Add a single event:** `,log add #mod-logs message_delete`
+- **Remove a single event:** `,log remove #mod-logs message_delete`
+- **Route all events to a channel:** `,log channel #logs`
+- **List valid events:** `,log events`
+
+## Supported events
+
+| Event | What triggers it |
+| --- | --- |
+| message_delete | A message is deleted |
+| message_edit | A message is edited |
+| message_bulk_delete | Messages are purged or bulk deleted |
+| member_join | A member joins |
+| member_leave | A member leaves |
+| member_ban | A member is banned |
+| member_unban | A member is unbanned |
+| member_kick | A member is kicked |
+| member_timeout | A member is timed out or untimed out |
+| member_nickname_update | A nickname changes |
+| member_roles_update | Roles are added or removed from a member |
+| member_avatar_update | A server avatar changes |
+| role_create | A role is created |
+| role_delete | A role is deleted |
+| role_update | A role's name, color, or permissions change |
+| channel_create | A channel is created |
+| channel_delete | A channel is deleted |
+| channel_update | A channel's settings change |
+| thread_create | A thread is created |
+| thread_delete | A thread is deleted |
+| voice_join | A member joins a voice channel |
+| voice_leave | A member leaves a voice channel |
+| voice_move | A member switches voice channels |
+| guild_update | Server settings change |
+| emoji_update | Emojis are added, removed, or renamed |
+| sticker_update | Stickers are added, removed, or renamed |
+| invite_create | An invite is created |
+| invite_delete | An invite is deleted or expires |
+| webhook_update | A channel's webhooks change |
+| antinuke | An antinuke module takes action |
+
+## Customize log colors
+
+You can set a custom hex color for any event in a specific channel.
+
+- **Set a color:** `,log color set #mod-logs message_delete FF0000`
+- **Remove a color:** `,log color remove #mod-logs message_delete`
+- **List colors:** `,log color list #mod-logs`
+
+If no custom color is set, seize uses its default primary accent.
+
+## Ignore members and channels
+
+Some members or channels generate noise. You can exclude them from all logging.
+
+- **Ignore a member:** `,log ignore @user`
+- **Ignore a channel:** `,log ignore #spam`
+- **Stop ignoring:** `,log ignore remove @user`
+- **List ignored entities:** `,log ignore list`
+
+## Disable logging globally
+
+Run `,log disable` to stop sending logs without deleting your configuration. Run `,log enable` again to resume exactly where you left off.
+
+<Tip>
+  For best results, create a dedicated logging webhook channel and grant seize the Manage Webhooks permission. seize will automatically create and reuse a webhook named "Seize Logging" for clean, branded log posts.
+</Tip>

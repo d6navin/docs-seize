@@ -1,0 +1,118 @@
+---
+title: "Seize Premium: Unlock Advanced Features and Priority Support"
+sidebarTitle: "Premium"
+description: "Learn what Seize Premium unlocks, how to subscribe through Discord, the difference between user and server premium, and how to check your premium status."
+---
+
+Seize Premium is a paid upgrade that funds ongoing development and unlocks exclusive features for your account or server. You can subscribe directly through Discord's native premium buttons, and premium is tracked separately for users and guilds.
+
+<Note type="info">
+  Seize offers both **User Premium** (per-account) and **Server Premium** (per-guild). Some features require one, the other, or both.
+</Note>
+
+## What Premium Unlocks
+
+Premium removes restrictions and adds capabilities across seize's command suite. Based on the source logic, premium unlocks include:
+
+- **AI Suite:** Image generation, text-to-speech, transcription, and AI OCR
+- **No cooldowns** on premium-gated commands
+- **Early access** to new features before public release
+- **Priority support** in the [support server](https://discord.gg/seizeapp)
+- **Music 24/7 Mode:** Keep seize permanently connected to a voice channel
+- **AutoMix:** Blend tracks together for seamless DJ-style playback
+- **Direct support** for continued seize development
+
+## User Premium vs Server Premium
+
+<CardGroup cols={2}>
+  <Card title="User Premium" icon="user">
+    Tied to your Discord account. Grants personal access to AI commands, removes cooldowns for you, and provides early access to new features regardless of which server you are in.
+  </Card>
+
+  <Card title="Server Premium" icon="server">
+    Tied to a specific Discord server. Unlocks server-wide features like 24/7 music mode and AutoMix. Any member with the right permissions can use these features in that server.
+  </Card>
+</CardGroup>
+
+## How to Subscribe
+
+Seize uses Discord's native SKU and entitlement system. That means you can subscribe directly inside Discord without visiting an external checkout page.
+
+<Steps>
+  <Step title="Open the Premium info card">
+    Run `,premium` in any server. Seize will reply with an interactive info card showing available plans.
+  </Step>
+  <Step title="Choose a plan">
+    Click the native Discord Premium Button on the card to open Discord's purchase sheet for the monthly or lifetime SKU.
+  </Step>
+  <Step title="Confirm activation">
+    Once the purchase completes, Discord sends an entitlement to seize. The bot activates your premium access automatically and may DM you a confirmation.
+  </Step>
+</Steps>
+
+<Warning>
+  If you need help with billing, refunds, or plan changes, visit the [support server](https://discord.gg/seizeapp). Seize does not process payments outside of Discord's native flow.
+</Warning>
+
+## Managing Premium Status
+
+### Check your user status
+
+Run `,userpremium` (aliases: `uprem`, `userprem`) to see whether your account currently has User Premium, when it was granted, and when it expires or renews.
+
+### Check your server status
+
+Run `,premium status` (aliases: `serverstatus`, `guild`) inside the server you want to check. It will confirm whether the guild has active Server Premium and when it was granted.
+
+### For server administrators
+
+Run `,premium` to view the premium info card and share it with members who want to upgrade.
+
+## Premium Commands
+
+<AccordionGroup>
+  <Accordion title="premium">
+    **Aliases:** `prem` **Description:** Display the Seize Premium info card with plan details and purchase buttons. **Usage:** `,premium` **Permissions:** None
+  </Accordion>
+
+  <Accordion title="premium status">
+    **Aliases:** `serverstatus`, `guild` **Description:** Check whether the current server has active Server Premium. **Usage:** `,premium status` **Permissions:** None (must be used in a server)
+  </Accordion>
+
+  <Accordion title="premium userstatus">
+    **Aliases:** `mystatus`, `me` **Description:** Check your personal User Premium status. **Usage:** `,premium userstatus` **Permissions:** None
+  </Accordion>
+
+  <Accordion title="userpremium">
+    **Aliases:** `uprem`, `userprem` **Description:** Check your own premium user status if no subcommand is given. **Usage:** `,userpremium` **Permissions:** None
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Owner-only commands such as `premium add`, `premium remove`, `userpremium add`, and `userpremium remove` exist for manual grant and revoke operations. These are not customer-facing and are documented only for completeness: they require bot owner privileges.
+</Note>
+
+## Subscription Lifecycle
+
+Seize listens to Discord entitlement events to keep premium state in sync:
+
+- **Creation/Update:** When you purchase or renew, seize inserts or updates your premium record and may send a confirmation DM.
+- **Deletion:** If a subscription ends or is refunded, seize removes the entitlement and may notify you via DM.
+
+Because this is handled through Discord's entitlement system, your premium status is accurate as long as Discord's billing state is current.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I gift premium to another user or server?">
+    Currently, premium is purchased through Discord's native SKU flow tied to your own account. There is no dedicated gift command exposed to end users in the source. For manual gifting inquiries, contact the [support server](https://discord.gg/seizeapp).
+  </Accordion>
+
+  <Accordion title="What happens if my subscription expires?">
+    User Premium features become unavailable immediately once the entitlement is removed. Server Premium features in the affected guild will also be disabled.
+  </Accordion>
+
+  <Accordion title="Do I need both User and Server Premium?">
+    It depends on what you want. User Premium unlocks personal AI and early access everywhere. Server Premium unlocks guild-wide music features like 24/7 and AutoMix. Some use cases may only need one.
+  </Accordion>
+</AccordionGroup>

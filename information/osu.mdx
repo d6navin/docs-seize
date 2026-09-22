@@ -1,0 +1,81 @@
+---
+title: "osu! Integration: Link Account and View Stats"
+sidebarTitle: "osu!"
+description: "Link your osu! account to seize and view your profile, global rank, PP, accuracy, and switch between osu!, taiko, catch, and mania modes."
+---
+
+seize's osu! integration lets you link your osu! account to your Discord profile and pull up stats anytime. You can view your rank, performance points, accuracy, and switch between all four game modes.
+
+## Link Your osu! Account
+
+<Steps>
+  <Step title="Set your account">
+    Run the link command with your osu! username:
+
+    ```text
+    ,osu set <username> [mode]
+    ```
+
+    The default mode is **osu!** if you do not specify one.
+  </Step>
+  <Step title="Choose a mode (optional)">
+    Available modes: `osu`, `taiko`, `fruits` (catch), `mania`.
+
+    Example:
+
+    ```text
+    ,osu set peppy taiko
+    ```
+  </Step>
+</Steps>
+
+<Note>
+  Your osu! data is stored so you can quickly check your profile without typing your username every time. You can unlink it at any time.
+</Note>
+
+## View Your Profile
+
+Once linked, view your profile with:
+
+```text
+,osu [member]
+```
+
+If you mention another member, seize shows their linked osu! profile instead. The output includes:
+
+- Global and country rank
+- Performance points (PP)
+- Hit accuracy
+- Current level and progress
+- Total play count
+
+## Change Your Default Mode
+
+To switch your default game mode without re-linking:
+
+```text
+,osu mode <mode>
+```
+
+Valid modes are `osu`, `taiko`, `fruits`, and `mania`.
+
+## Unlink Your Account
+
+To remove your osu! link from seize:
+
+```text
+,osu remove
+```
+
+<Warning>
+  Unlinking deletes the stored osu! association. You will need to link again to use `,osu` without specifying a username.
+</Warning>
+
+## Command Reference
+
+| Command | Syntax | Description |
+| --- | --- | --- |
+| `osu` | `,osu [member]` | View your linked osu! profile or another member's |
+| `osu set` | `,osu set <username> [mode]` | Link your osu! account |
+| `osu mode` | `,osu mode <mode>` | Change your default game mode |
+| `osu remove` | `,osu remove` | Unlink your osu! account |

@@ -1,0 +1,185 @@
+---
+title: "Last.fm integration: now playing, charts, and crowns"
+sidebarTitle: "Last.fm"
+description: "Link your Last.fm account to seize to share now playing tracks, view top artists and albums, generate collages, compete for crowns, and run whoknows leaderboards."
+---
+
+seize integrates deeply with Last.fm so you can share what you are listening to, compare music taste with friends, and compete for artist crowns in your server. Start by linking your account, then explore charts, collages, and leaderboards.
+
+<Note>
+  Linking your Last.fm account also enables auto-scrobbling when you use seize's music features.
+</Note>
+
+## Link your account
+
+Use the official Last.fm authorization flow to connect your profile.
+
+<Steps>
+  1. Run `,lf set` (or `,lf login`).
+  2. Check your DMs for an authorization link from seize.
+  3. Click **Authorize on Last.fm** and approve the connection.
+  4. Return to Discord. Your account is now linked.
+</Steps>
+
+To remove the link later, run `,lf remove` or `,lf logout`.
+
+## Now playing
+
+Show what you are currently listening to, or check another member's track.
+
+| Command | Description |
+| --- | --- |
+| `,np [member]` | Show now playing or last played track |
+| `,lf now [member]` | Alias for `,np` |
+| `,lf recent [member]` | List your 5 most recent tracks |
+| `,lf recentfor <artist>` | Show recent tracks for a specific artist |
+
+Example:
+
+```text
+,np @isuan
+```
+
+### Custom now-playing embeds
+
+You can replace the default now-playing card with your own design using template variables.
+
+<Steps>
+  1. View available variables with `,lf embed variables`.
+  2. Build a template using `{embed}`, `{container}`, or plain text.
+  3. Save it with `,lf embed set <template>`.
+  4. Preview changes instantly by running `,np`.
+</Steps>
+
+Useful variables include `{lastfm.track}`, `{lastfm.artist}`, `{lastfm.album_cover}`, `{lastfm.scrobbles}`, and `{lastfm.artist_plays}`.
+
+To reset to the default embed, run `,lf embed reset`.
+
+## Top charts
+
+View your most-played artists, tracks, and albums over a chosen time period.
+
+| Command | Description |
+| --- | --- |
+| `,lf topartists [member]` | Top 10 artists |
+| `,lf toptracks [member]` | Top 10 tracks |
+| `,lf topalbums [member]` | Top 10 albums |
+| `,lf toptags [member]` | Top genres derived from artist tags |
+| `,lf toptenalbums [member] <artist>` | Top albums for a specific artist |
+| `,lf toptentracks [member] <artist>` | Top tracks for a specific artist |
+
+Set your default period with `,lf update <period>`. Valid periods are `overall`, `7day`, `1month`, `3month`, `6month`, and `12month`.
+
+## Collages
+
+Generate a visual grid of your top albums.
+
+```text
+,lf collage [member] <grid> <period>
+```
+
+- **Grid**: Format as `NxM`, for example `3x3`, `4x5`. Maximum 100 tiles total.
+- **Period**: `overall`, `7day`, `1month`, `3month`, `6month`, or `12month`.
+
+Example:
+
+```text
+,lf collage @isuan 3x3 7day
+```
+
+## Who knows leaderboards
+
+See who in your server listens to a given artist, track, or album the most.
+
+| Command | Description |
+| --- | --- |
+| `,wk <artist>` | Server leaderboard for an artist |
+| `,lf wktrack <artist> - <track>` | Server leaderboard for a track |
+| `,lf wkalbum <artist> - <album>` | Server leaderboard for an album |
+| `,gwk <artist>` | Global leaderboard for an artist |
+| `,lf gwka <artist> - <album>` | Global leaderboard for an album |
+| `,lf gwkt <artist> - <track>` | Global leaderboard for a track |
+
+If you omit the artist or track, seize uses your currently playing item.
+
+## Crowns
+
+Crowns are awarded to the server member with the most plays for each artist. To compete, you must first index your Last.fm library.
+
+<Steps>
+  1. Run `,lf index` to import your top 1000 artists.
+  2. Check your crowns with `,lf crowns`.
+  3. View who holds a specific crown with `,lf crown <artist>`.
+  4. See the server's crown leaders with `,lf mostcrowns`.
+</Steps>
+
+Server managers can hide users from whoknows and crowns with `,lf hide @user`.
+
+## Custom commands
+
+Set a personal trigger phrase that runs your now-playing command automatically when you type it in chat.
+
+```text
+,lf cc <trigger>
+```
+
+Toggle whether others can see your trigger with `,lf cc public <trigger>`.
+
+## Reactions and search links
+
+Customize reactions that appear on your now-playing posts, or jump to a track on popular platforms.
+
+| Command | Description |
+| --- | --- |
+| `,lf customreactions <up> <down>` | Set personal upvote/downvote reactions |
+| `,lf react <up> <down>` | Set server default reactions (manager only) |
+| `,lf spotify [member]` | Open the current track on Spotify |
+| `,lf youtube [member]` | Open the current track on YouTube |
+| `,lf soundcloud [member]` | Open the current track on SoundCloud |
+| `,lf itunes [member]` | Open the current track on Apple Music |
+| `,lf lyrics [member]` | Get lyrics for the current track |
+
+## Profile, streaks, and pace
+
+| Command | Description |
+| --- | --- |
+| `,lf profile [member]` | Overview of a Last.fm profile |
+| `,lf count [member]` | Total scrobble count |
+| `,lf streak [member]` | Daily listening streak |
+| `,lf score [member]` | Estimated score based on scrobbles |
+| `,lf pace [target]` | Project when you will hit a scrobble milestone |
+| `,lf milestone <number>` | Check progress toward a scrobble goal |
+| `,lf taste @user` | Compare shared artists with another member |
+
+## Additional commands
+
+<AccordionGroup>
+  <Accordion title="Plays and track info">
+    - `,lf plays [member] <artist>`: Check plays for an artist.
+    - `,lf playstrack [member] <artist> - <track>`: Check plays for a track.
+    - `,lf playsalbum [member] <artist> - <album>`: Check plays for an album.
+    - `,lf playsall [member] <artist> - <album>`: Check plays for every track on an album.
+    - `,lf track [query]`: View stats for a track.
+    - `,lf artist [name]`: View artist biography, tags, and your stats.
+    - `,lf album [query]`: View album info and your stats.
+  </Accordion>
+
+  <Accordion title="Server and global boards">
+    - `,lf scoreboard`: Server scrobble leaderboard.
+    - `,lf globalboard`: Global scrobble leaderboard.
+    - `,lf playing`: Show what voice-channel members are currently playing.
+  </Accordion>
+
+  <Accordion title="Favorites and random">
+    - `,lf favorites [member]`: List loved tracks.
+    - `,lf random [member]`: Pick a random track from your top listens.
+    - `,lf recommendation [member]`: Suggest a random artist from your library.
+  </Accordion>
+
+  <Accordion title="Manage your link">
+    - `,lf color <#hex>`: Set your embed accent color.
+    - `,lf mode <embed/text/compact>`: Change your display mode.
+    - `,lf hide [member]`: Hide from server whoknows (manager only).
+    - `,lf hidelist`: View hidden members.
+  </Accordion>
+</AccordionGroup>

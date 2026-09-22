@@ -1,0 +1,143 @@
+---
+title: "Bulk Delete Your Own Messages with Self-Purge"
+sidebarTitle: "Self-Purge"
+description: "Use seize's self-purge commands to delete your own messages in bulk by count, time window, or content filters. Premium users only."
+---
+
+seize's self-purge feature lets you clean up your own messages without needing moderator permissions. You can delete by message count, by a time window, or by matching content types like embeds, files, links, or specific text. This feature is available for seize premium users.
+
+## Before You Begin
+
+Make sure seize has the following permissions in the channel where you want to purge:
+
+- **Manage Messages**
+- **Read Message History**
+
+Without both permissions, self-purge will not work.
+
+<Note>
+  Self-purge only deletes your own messages. You cannot delete messages from other users.
+</Note>
+
+## Basic Usage
+
+The simplest way to self-purge is by message count.
+
+```text
+,selfpurge 200
+```
+
+You can also use time-based purging. This deletes your messages sent within the given duration.
+
+```text
+,selfpurge 7d
+```
+
+Valid time units are `d` (days), `h` (hours), `m` (minutes), and `s` (seconds). The minimum lookback is 1 minute, and the maximum is 7 days.
+
+## Content-Based Filtering
+
+Use subcommands to target specific message types instead of an entire count or window.
+
+<AccordionGroup>
+  <Accordion title="selfpurge startswith">
+    **Syntax:** `,selfpurge startswith <substring> [count_or_time]`
+
+    Delete messages that start with a specific substring.
+
+    ```text
+    ,selfpurge startswith !hello 100
+    ```
+  </Accordion>
+
+  <Accordion title="selfpurge endswith">
+    **Syntax:** `,selfpurge endswith <substring> [count_or_time]`
+
+    Delete messages that end with a specific substring.
+
+    ```text
+    ,selfpurge endswith goodbye 200
+    ```
+  </Accordion>
+
+  <Accordion title="selfpurge contains">
+    **Syntax:** `,selfpurge contains <substring> [count_or_time]`
+
+    Delete messages that contain a specific substring anywhere in the text.
+
+    ```text
+    ,selfpurge contains spam 200
+    ```
+  </Accordion>
+
+  <Accordion title="selfpurge embeds">
+    **Syntax:** `,selfpurge embeds [count_or_time]`
+
+    Delete only messages that contain embeds.
+  </Accordion>
+
+  <Accordion title="selfpurge files">
+    **Syntax:** `,selfpurge files [count_or_time]`
+
+    Delete only messages with file attachments.
+  </Accordion>
+
+  <Accordion title="selfpurge images">
+    **Syntax:** `,selfpurge images [count_or_time]`
+
+    Delete only messages containing images, including linked images and embed thumbnails.
+  </Accordion>
+
+  <Accordion title="selfpurge links">
+    **Syntax:** `,selfpurge links [count_or_time]`
+
+    Delete only messages that contain URLs.
+  </Accordion>
+
+  <Accordion title="selfpurge stickers">
+    **Syntax:** `,selfpurge stickers [count_or_time]`
+
+    Delete only messages that contain stickers.
+  </Accordion>
+
+  <Accordion title="selfpurge emoji">
+    **Syntax:** `,selfpurge emoji [count_or_time]`
+
+    Delete only messages containing unicode emojis.
+  </Accordion>
+
+  <Accordion title="selfpurge emotes">
+    **Syntax:** `,selfpurge emotes [count_or_time]`
+
+    Delete only messages containing custom Discord emotes.
+  </Accordion>
+</AccordionGroup>
+
+## Limits and Behavior
+
+- Maximum delete count per command: **1,000 messages**
+- Maximum lookback window: **7 days**
+- Messages older than 14 days are deleted individually instead of in bulk
+- Up to **10,000 messages** are scanned per command
+- Deleted message replies and ephemeral confirmation notes clean themselves up automatically
+
+<Warning>
+  Deleted messages cannot be recovered. If you need a record, make sure to save it before purging.
+</Warning>
+
+## Quick Reference
+
+| Command | Usage |
+| --- | --- |
+| `,selfpurge <count>` | Delete last N of your messages (default 25) |
+| `,selfpurge <duration>` | Delete your messages within a time window |
+| `,selfpurge startswith <text> [criteria]` | Starts with substring |
+| `,selfpurge endswith <text> [criteria]` | Ends with substring |
+| `,selfpurge contains <text> [criteria]` | Contains substring |
+| `,selfpurge embeds [criteria]` | Contains embeds |
+| `,selfpurge files [criteria]` | Has file attachments |
+| `,selfpurge images [criteria]` | Has images |
+| `,selfpurge links [criteria]` | Has URLs |
+| `,selfpurge stickers [criteria]` | Has stickers |
+| `,selfpurge emoji [criteria]` | Has unicode emojis |
+| `,selfpurge emotes [criteria]` | Has custom emotes |

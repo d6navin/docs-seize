@@ -1,47 +1,41 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get started with seize in under 5 minutes"
+sidebarTitle: "Quickstart"
+description: "Invite seize to your Discord server, grant permissions, and run your first commands in five quick steps. Join the support server for extra help."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+This guide walks you through adding seize to your Discord server and verifying that everything works. You do not need any technical background. Most users are up and running in under five minutes.
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Invite seize">
+    Use the official invite link to add seize to your server. Choose the server you manage and proceed to the permission screen.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
+  <Step title="Grant permissions">
+    seize asks for Administrator permissions so every feature works out of the box. If you prefer a narrower scope, make sure the bot has at least **Manage Server**, **Manage Roles**, **Manage Channels**, **Kick Members**, **Ban Members**, **Manage Messages**, **View Audit Log**, and **Connect / Speak** for voice channels.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
+  <Step title="Check that the bot is online">
+    Look for seize in your member list. If it shows as online, the bot has joined successfully.
+  </Step>
+  <Step title="Run your first command">
+    Type `,help` in any text channel. seize will reply with a list of command categories you can explore.
+  </Step>
+  <Step title="Set a custom prefix (optional)">
+    If you want a different prefix from the default comma, run:
 
-    ```bash
-    your-cli start
+    ```text
+    ,prefix set <char>
     ```
+
+    Prefixes can be up to 5 characters long. To reset back to the default, use `,prefix reset`.
   </Step>
 </Steps>
 
-<Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
+## Next steps
 
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
-</Tip>
+- Browse [Configuration](/configuration) to learn about personal prefixes, aliases, and ignored users.
+- Jump to [Moderation overview](/moderation/overview) to set up bans, kicks, and logging.
+- Explore [Entertainment overview](/entertainment/overview) for economy, AI commands, and games.
+
+## Need help?
+
+Join the [support server](https://discord.gg/seizeapp) if you run into issues, have questions about permissions, or want to request features.

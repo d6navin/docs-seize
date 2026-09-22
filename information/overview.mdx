@@ -1,0 +1,117 @@
+---
+title: "Information Commands: Discord and Game Lookups"
+sidebarTitle: "Overview"
+description: "seize offers information commands for user, server, and social lookups. View full command list and how to get started with lookups."
+---
+
+seize gathers information from Discord servers, game platforms, and social media so you can get answers fast without leaving chat. This guide covers the core lookup commands available in the Information module.
+
+## Discord Lookups
+
+These commands reveal details about users, servers, and roles.
+
+<AccordionGroup>
+  <Accordion title="userinfo">
+    **Usage:** `,userinfo [member]`
+
+    Show a user's Discord profile, roles, join dates, and account creation date. If no member is provided, it shows your own info.
+  </Accordion>
+
+  <Accordion title="serverinfo">
+    **Usage:** `,serverinfo [invite/server ID]`
+
+    View the current server's member count, boost level, channel count, and creation date. You can also pass a Discord invite link or server ID to see partial info about a server seize is not in.
+  </Accordion>
+
+  <Accordion title="roleinfo">
+    **Usage:** `,roleinfo [role]`
+
+    Display a role's color, position, member count, hoist status, and key permissions. If no role is specified, it defaults to your highest role.
+  </Accordion>
+
+  <Accordion title="avatar">
+    **Usage:** `,avatar [member]`
+
+    View a user's global profile picture at full resolution.
+  </Accordion>
+
+  <Accordion title="banner">
+    **Usage:** `,banner [user]`
+
+    View a user's global profile banner at full resolution.
+  </Accordion>
+
+  <Accordion title="perms">
+    **Usage:** `,perms [member]`
+
+    List all permissions a member has in the server, with key permissions highlighted.
+  </Accordion>
+
+  <Accordion title="membercount">
+    **Usage:** `,membercount`
+
+    Show the total members, humans, and bots in the current server.
+  </Accordion>
+
+  <Accordion title="boosters">
+    **Usage:** `,boosters`
+
+    List all server boosters sorted by how long they have been boosting.
+  </Accordion>
+</AccordionGroup>
+
+## Utility Lookups
+
+<AccordionGroup>
+  <Accordion title="ping">
+    **Usage:** `,ping`
+
+    Check seize's gateway and REST latency.
+  </Accordion>
+
+  <Accordion title="botinfo">
+    **Usage:** `,botinfo`
+
+    View seize's uptime, server count, user count, and total command count.
+  </Accordion>
+
+  <Accordion title="spotify">
+    **Usage:** `,spotify [user]`
+
+    Show what a user is currently listening to on Spotify, including a progress bar.
+  </Accordion>
+
+  <Accordion title="timezone">
+    **Usage:** `,timezone [member]` / `,timezone set <location>`
+
+    View a user's local time or set your own timezone. Supports natural location names like "New York" or "London".
+  </Accordion>
+
+  <Accordion title="github">
+    **Usage:** `,github <username>`
+
+    Fetch a GitHub user's bio, follower count, and public repository count.
+  </Accordion>
+
+  <Accordion title="urban">
+    **Usage:** `,urban <term>`
+
+    Search Urban Dictionary for a definition.
+  </Accordion>
+</AccordionGroup>
+
+## Game and Social Lookups
+
+<CardGroup>
+  <Card title="osu!" icon="circle-dashed" href="/information/osu">
+    Link your osu! account, view profiles, and check stats across all game modes.
+  </Card>
+
+  <Card title="Steam" icon="gamepad-2" href="/information/steam">
+    Link your Steam account and view your profile, game library, and total playtime.
+  </Card>
+
+  <Card title="Xbox and Socials" icon="globe" href="/information/xbox-socials">
+    Look up Xbox gamertags and social media profiles including TikTok, Instagram, Twitter/X, YouTube, Roblox, and Minecraft.
+  </Card>
+</CardGroup>

@@ -1,0 +1,93 @@
+---
+title: "Control Your Data Privacy in seize"
+sidebarTitle: "Privacy"
+description: "Learn how seize stores your data, how to opt out of activity tracking, and how to permanently wipe your stored profile information."
+---
+
+seize collects and stores certain data to power features like snipes, name history, activity stats, and presence roles. You have full control over this data. You can opt out of tracking at any time, or permanently delete everything seize stores about you.
+
+## What Data seize Stores
+
+seize stores data that is necessary to make features work across your servers. This includes:
+
+- **Activity and presence data** used for presence roles, leaderboards, and incident logging
+- **Message metadata** for snipe commands (deleted messages, edits, and removed reactions)
+- **Profile history** such as past usernames, nicknames, and avatars
+- **User settings** including AFK status, reminders, timezones, and birthdays
+- **Linked accounts** for osu!, Steam, Xbox, and Last.fm integrations
+- **Premium settings** like custom embed colors and footers
+- **Roleplay and filter states** including uwulock and confession logs
+
+If you are concerned about privacy, you can stop tracking entirely or wipe everything in one step.
+
+## Opt Out of Tracking
+
+When you opt out, seize stops tracking your presence and activity data. This means presence roles, activity stats, and any behavior-based logging will no longer apply to you.
+
+<Steps>
+  <Step title="Opt out">
+    Run the following command in any server where seize is present:
+
+    ```text
+    ,privacy optout
+    ```
+  </Step>
+  <Step title="Confirm your status">
+    ```text
+    ,privacy status
+    ```
+
+    This shows whether tracking is currently active or disabled for your account.
+  </Step>
+</Steps>
+
+## Opt Back In
+
+If you change your mind, you can re-enable tracking at any time.
+
+```text
+,privacy optin
+```
+
+After opting back in, presence roles and activity stats will resume collecting data for you.
+
+<Warning>
+  Opting out does not delete data that was already stored before you opted out. To remove existing data, use the wipe command.
+</Warning>
+
+## Permanently Delete Your Data
+
+You can wipe every record seize holds about you in a single action. This includes snipes, edits, reactions, history logs, reminders, linked accounts, Last.fm data, and more. After wiping, you are automatically opted out.
+
+<Steps>
+  <Step title="Request a wipe">
+    Type the following to see the confirmation requirements:
+
+    ```text
+    ,privacy wipe
+    ```
+
+    seize will list exactly what will be deleted and ask you to confirm.
+  </Step>
+  <Step title="Confirm deletion">
+    Run the command with confirmation:
+
+    ```text
+    ,privacy wipe yes
+    ```
+  </Step>
+</Steps>
+
+<Warning>
+  Wiping your data is permanent. Although seize cannot delete Discord-native records globally, this removes everything stored in seize's database that is tied to your user ID.
+</Warning>
+
+## Privacy Commands
+
+| Command | What It Does |
+| --- | --- |
+| `,privacy` | View the privacy command help |
+| `,privacy optout` | Stop presence and activity tracking |
+| `,privacy optin` | Re-enable presence and activity tracking |
+| `,privacy wipe yes` | Permanently delete all stored data and opt out |
+| `,privacy status` | Check your current tracking status |

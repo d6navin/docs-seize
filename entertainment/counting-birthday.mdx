@@ -1,0 +1,139 @@
+---
+title: "Counting game, birthdays, confessions, and mini-games"
+sidebarTitle: "Counting & Birthday"
+description: "Run a server counting channel, celebrate member birthdays, send anonymous confessions, keep a personal diary, and play mini-games with seize."
+---
+
+seize includes a variety of community and personal features: a server counting game, birthday announcements, anonymous confessions, a private diary, and quick mini-games. Each feature is independent, so you can enable only what fits your server.
+
+## Counting game
+
+Set a dedicated channel where members count upward one number at a time. The bot validates each message, enforces turn-taking, and deletes incorrect or double posts automatically.
+
+### Setup
+
+<Steps>
+  1. Run `,counting channel #channel` to set the active counting channel.
+  2. Members begin counting from **1**.
+  3. The bot adds a checkmark reaction to correct numbers and deletes wrong ones.
+</Steps>
+
+### Management commands
+
+| Command | Permission | Description |
+| --- | --- | --- |
+| `,counting channel <channel>` | Administrator | Set or change the counting channel |
+| `,counting setcount <number>` | Administrator | Adjust the current tally |
+| `,counting toggle <on/off>` | Administrator | Enable or disable the game |
+| `,counting config` | Administrator | View current settings |
+
+### Rules enforced automatically
+
+- Each message must contain exactly the next integer.
+- The same user cannot count twice in a row.
+- Wrong numbers are deleted immediately with a brief warning.
+
+## Birthdays
+
+Let members set their birthday so the server can celebrate automatically.
+
+### Member commands
+
+| Command | Description |
+| --- | --- |
+| `,birthday set <date>` | Set your birthday globally |
+| `,birthday remove` | Remove your stored birthday |
+| `,birthday [member]` | View a member's birthday and countdown |
+
+Accepted formats include `MM/DD`, `August 27`, `Oct 3rd`, and `27th of August`.
+
+### Admin commands
+
+| Command | Permission | Description |
+| --- | --- | --- |
+| `,birthday channel <channel>` | Manage Server | Set the announcement channel |
+| `,birthday message <text>` | Manage Server | Set a custom announcement message |
+| `,birthday view` | Manage Server | View the server's birthday configuration |
+
+The announcement message supports plain text, embeds, and Discord Components V2 containers. seize checks for birthdays once per day at midnight UTC.
+
+## Confessions
+
+Allow server members to send anonymous messages through a slash command.
+
+### Setup
+
+<Steps>
+  1. Run `,confessions channel #channel` to set the destination channel.
+  2. Enable the system with `,confessions toggle on`.
+  3. Members use `/confess` (with optional image attachment) to submit.
+</Steps>
+
+### Management commands
+
+| Command | Permission | Description |
+| --- | --- | --- |
+| `,confessions toggle <on/off>` | Manage Server | Enable or disable confessions |
+| `,confessions channel <channel>` | Manage Server | Set the confessions channel |
+| `,confessions logchannel <channel>` | Manage Server + Premium | Set a logging channel for de-anonymized entries |
+| `,confessions lookup <number/link>` | Manage Server + Premium | Reveal the author of a confession |
+| `,confessions revoke <user/id/link>` | Manage Server | Ban a user from submitting confessions |
+| `,confessions unrevoke <user>` | Manage Server | Restore confession privileges |
+| `,confessions blacklisted` | Manage Server | List all revoked users |
+| `,confessions edit` | Manage Server | Open an interactive settings panel |
+| `,confessions config` | Manage Server | View current configuration |
+| `,confessions reset` | Manage Server | Wipe all confession data for the server |
+
+By default, confessions are numbered sequentially and posted as embeds. Image attachments can be disabled if needed.
+
+## Diary
+
+Keep a private personal diary inside Discord. Entries can be written via DM for full privacy, or in a server where they can optionally be posted to a forum channel.
+
+| Command | Description |
+| --- | --- |
+| `,diary write <entry>` | Add a new diary entry |
+| `,diary view [id]` | Read a specific entry (latest by default) |
+| `,diary list` | List all entries with previews |
+| `,diary edit <id> <text>` | Update an existing entry |
+| `,diary delete <id>` | Remove an entry |
+| `,diary search <query>` | Find entries containing a keyword |
+| `,diary stats` | View total entries, word counts, and dates |
+| `,diary export` | Download your full diary as a text file |
+| `,diary reset` | Permanently delete all entries |
+| `,diary overview` | Quick summary and command links |
+
+### Server setup (optional)
+
+Admins can configure a forum channel so entries written in the server are posted there automatically.
+
+```text
+,diary setup #forum-channel
+```
+
+To stop forum posting, run `,diary disable`.
+
+## Blunt game
+
+Roll a virtual blunt, spark it, and pass it around the channel.
+
+| Command | Description |
+| --- | --- |
+| `,blunt` | Roll a new blunt in the channel |
+| `,blunt spark` | Light the blunt so people can hit it |
+| `,blunt smoke` | Take a hit (3-second cooldown per user) |
+| `,blunt taps` | View the server's blunt hit leaderboard |
+
+Each blunt lasts 8 to 16 hits. You cannot hit twice in a row. Stats are tracked per server.
+
+## Flag guessing game
+
+Guess the country from its flag. Three difficulty levels are available.
+
+| Command | Description |
+| --- | --- |
+| `,country easy` | Guess a well-known country's flag |
+| `,country medium` | Guess a moderately known country's flag |
+| `,country hard` | Guess an obscure country's flag |
+
+You have 10 seconds to answer. The game ends when you guess correctly or time runs out.

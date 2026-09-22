@@ -1,0 +1,491 @@
+---
+title: "Seize Moderation Commands Reference"
+sidebarTitle: "Commands"
+description: "Complete reference for seize moderation commands including ban, kick, mute, warn, purge, role, jail, and more with syntax, descriptions, and required permissions."
+---
+
+This page is the full command reference for seize's moderation toolkit. Each command below shows its usage syntax, a short description, and the Discord permission you need to run it.
+
+<Warning>
+  Many commands are destructive or affect large numbers of messages and members. Double-check your arguments before confirming.
+</Warning>
+
+## Banning and unbanning
+
+<AccordionGroup>
+  <Accordion title=",ban">
+    **Usage:** `,ban <user> [delete_days] [reason]` **Description:** Ban a user from the server and optionally delete their recent message history. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",ban recent">
+    **Usage:** `,ban recent` **Description:** Ban users who recently joined the server. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",tempban">
+    **Usage:** `,tempban <user> <duration> [reason]` **Description:** Temporarily ban a user. seize automatically unbans them when the duration expires. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",softban">
+    **Usage:** `,softban <member> [delete_history=1] [reason]` **Description:** Ban and immediately unban a user to clear their messages. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",hardban">
+    **Usage:** `,hardban <user> [reason]` **Description:** Permanently ban a user and prevent manual unban. seize will re-ban them if unbanned. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",hardban remove">
+    **Usage:** `,hardban remove <user>` **Description:** Lift a hardban from a user. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",unban">
+    **Usage:** `,unban <user_id>` **Description:** Unban a user from the server. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",unban all">
+    **Usage:** `,unban all` **Description:** Unban every banned user in the server. **Permission:** Ban Members
+  </Accordion>
+
+  <Accordion title=",massban">
+    **Usage:** `,massban <user>... [reason]` **Description:** Ban multiple users at once. **Permission:** Administrator
+  </Accordion>
+</AccordionGroup>
+
+## Kicking and removing members
+
+<AccordionGroup>
+  <Accordion title=",kick">
+    **Usage:** `,kick <member> [reason]` **Description:** Kick a member from the server. **Permission:** Kick Members
+  </Accordion>
+
+  <Accordion title=",strip">
+    **Usage:** `,strip <member>` **Description:** Remove all roles from a user. **Permission:** Manage Roles
+  </Accordion>
+</AccordionGroup>
+
+## Mutes, timeouts, and restrictions
+
+<AccordionGroup>
+  <Accordion title=",mute">
+    **Usage:** `,mute <member> <duration> [reason]` (default 5m) **Description:** Temporarily timeout a member. **Permission:** Moderate Members
+  </Accordion>
+
+  <Accordion title=",unmute">
+    **Usage:** `,unmute <member>` **Description:** Remove a timeout from a member. **Permission:** Moderate Members
+  </Accordion>
+
+  <Accordion title=",unmute all">
+    **Usage:** `,unmute all` **Description:** Remove timeouts from all muted members. **Permission:** Moderate Members
+  </Accordion>
+
+  <Accordion title=",imagemute">
+    **Usage:** `,imagemute <member>` **Description:** Toggle image restrictions for a member by adding or removing the image muted role. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",reactionmute">
+    **Usage:** `,reactionmute <member>` **Description:** Toggle reaction restrictions for a member by adding or removing the reaction muted role. **Permission:** Manage Roles
+  </Accordion>
+</AccordionGroup>
+
+## Warnings
+
+<AccordionGroup>
+  <Accordion title=",warn">
+    **Usage:** `,warn <member> [reason]` **Description:** Warn a member for breaking a rule. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",warn remove">
+    **Usage:** `,warn remove <warn_id>` **Description:** Remove a specific warning by its ID. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",warn clear">
+    **Usage:** `,warn clear <member>` **Description:** Clear all warnings for a member. **Permission:** Administrator
+  </Accordion>
+
+  <Accordion title=",warn list">
+    **Usage:** `,warn list [member]` **Description:** View warnings for a member (defaults to yourself). **Permission:** Manage Messages
+  </Accordion>
+</AccordionGroup>
+
+## Message cleanup
+
+<AccordionGroup>
+  <Accordion title=",purge">
+    **Usage:** `,purge [member] <amount>` or `,purge <amount>` **Description:** Delete messages from the current channel. You can filter by member or amount. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge startswith">
+    **Usage:** `,purge startswith <substring> [search=100]` **Description:** Purge messages starting with a given substring. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge endswith">
+    **Usage:** `,purge endswith <substring> [search=100]` **Description:** Purge messages ending with a given substring. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge contains">
+    **Usage:** `,purge contains <substring> [search=100]` **Description:** Purge messages containing a given substring. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge embeds">
+    **Usage:** `,purge embeds [search=100]` **Description:** Purge messages containing embeds. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge files">
+    **Usage:** `,purge files [search=100]` **Description:** Purge messages with file attachments. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge images">
+    **Usage:** `,purge images [search=100]` **Description:** Purge messages containing images (including links). **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge links">
+    **Usage:** `,purge links [search=100]` **Description:** Purge messages containing links. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge bots">
+    **Usage:** `,purge bots [search=100]` **Description:** Purge messages from bots. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge humans">
+    **Usage:** `,purge humans [search=100]` **Description:** Purge messages from human users. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge webhooks">
+    **Usage:** `,purge webhooks [search=100]` **Description:** Purge messages from webhooks. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge activity">
+    **Usage:** `,purge activity [search=100]` **Description:** Purge activity messages such as game invites. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge reactions">
+    **Usage:** `,purge reactions [search=100]` **Description:** Remove reactions from messages in the channel. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge stickers">
+    **Usage:** `,purge stickers [search=100]` **Description:** Purge messages containing stickers. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge emoji">
+    **Usage:** `,purge emoji [search=100]` **Description:** Purge messages containing unicode emojis. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge emotes">
+    **Usage:** `,purge emotes [search=100]` **Description:** Purge messages containing custom emotes. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge mentions">
+    **Usage:** `,purge mentions <member> [search=100]` **Description:** Purge messages that mention a specific member. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge before">
+    **Usage:** `,purge before <message_link_or_id>` **Description:** Purge messages before a given message. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge after">
+    **Usage:** `,purge after <message_link_or_id>` **Description:** Purge messages after a given message. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge upto">
+    **Usage:** `,purge upto <message_link_or_id>` **Description:** Purge messages up to a given message. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",purge between">
+    **Usage:** `,purge between <start_id> <finish_id>` **Description:** Purge messages between two message IDs. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",botclear">
+    **Usage:** `,botclear [amount=100]` **Description:** Clear bot messages and their command invocations. **Permission:** Manage Messages
+  </Accordion>
+</AccordionGroup>
+
+## Role management
+
+<AccordionGroup>
+  <Accordion title=",role">
+    **Usage:** `,role <member> <role>` **Description:** Add or remove a role from a member by toggling it. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role restore">
+    **Usage:** `,role restore <member>` **Description:** Restore a member's roles from before they left the server. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role create">
+    **Usage:** `,role create <name>` **Description:** Create a new role in the server. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role delete">
+    **Usage:** `,role delete <role>` **Description:** Delete a role. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role add humans">
+    **Usage:** `,role add humans <role>` **Description:** Mass add a role to all human members. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role add bots">
+    **Usage:** `,role add bots <role>` **Description:** Mass add a role to all bots. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role remove humans">
+    **Usage:** `,role remove humans <role>` **Description:** Mass remove a role from all human members. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role remove bots">
+    **Usage:** `,role remove bots <role>` **Description:** Mass remove a role from all bots. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit color">
+    **Usage:** `,role edit color <role> <hex> [second_hex]` **Description:** Change a role's color. Add a second hex code to set a gradient. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit name">
+    **Usage:** `,role edit name <role> <new_name>` **Description:** Rename a role. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit hoist">
+    **Usage:** `,role edit hoist <role> <true/false>` **Description:** Toggle whether a role is displayed separately on the member list. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit mentionable">
+    **Usage:** `,role edit mentionable <role> <true/false>` **Description:** Toggle whether a role is mentionable by everyone. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit icon">
+    **Usage:** `,role edit icon <role> [url_or_emoji]` **Description:** Change a role's icon using a URL, emoji, or attachment. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit position">
+    **Usage:** `,role edit position <role> <position>` **Description:** Move a role to a specific position in the hierarchy. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role edit gradient">
+    **Usage:** `,role edit gradient <role> <hex1> <hex2>` **Description:** Set a gradient color for a role. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role has">
+    **Usage:** `,role has <role> <assign_role>` **Description:** Add a role to all members who have another specific role. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",role has remove">
+    **Usage:** `,role has remove <role> <remove_role>` **Description:** Remove a role from all members who have another specific role. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",topcolor">
+    **Usage:** `,topcolor [member] <hex>` **Description:** Change the color of the highest role for yourself or a member. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",temprole">
+    **Usage:** `,temprole <member> <duration> <role>` **Description:** Give a temporary role that expires automatically. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",temprole list">
+    **Usage:** `,temprole list` **Description:** List all active temporary roles in the server. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",rolecancel">
+    **Usage:** `,rolecancel` **Description:** Cancel a currently running mass role task. **Permission:** Manage Roles
+  </Accordion>
+</AccordionGroup>
+
+## Jail and detention
+
+<AccordionGroup>
+  <Accordion title=",jail">
+    **Usage:** `,jail <member> [reason]` **Description:** Jail a member by stripping their roles and assigning the jail role. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",jail setup">
+    **Usage:** `,jail setup` **Description:** Create the jail role and channel automatically. **Permission:** Administrator
+  </Accordion>
+
+  <Accordion title=",jail reset">
+    **Usage:** `,jail reset` **Description:** Delete the jail role and channel and reset the configuration. **Permission:** Administrator
+  </Accordion>
+
+  <Accordion title=",unjail">
+    **Usage:** `,unjail <member> [reason]` **Description:** Unjail a member and restore their previous roles. **Permission:** Manage Messages
+  </Accordion>
+</AccordionGroup>
+
+## Channel and server controls
+
+<AccordionGroup>
+  <Accordion title=",lock">
+    **Usage:** `,lock` **Description:** Lock the current channel so the default role cannot send messages. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",unlock">
+    **Usage:** `,unlock` **Description:** Unlock the current channel so the default role can send messages. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",lockdown">
+    **Usage:** `,lockdown` **Description:** Lock all text channels in the server. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",lockdown end">
+    **Usage:** `,lockdown end` **Description:** End the server lockdown and unlock all text channels. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",slowmode">
+    **Usage:** `,slowmode <seconds>` **Description:** Set the slowmode delay for the current channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",slowmode disable">
+    **Usage:** `,slowmode disable` **Description:** Disable slowmode for the current channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",topic set">
+    **Usage:** `,topic set <text>` **Description:** Set the current channel's topic. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",topic remove">
+    **Usage:** `,topic remove` **Description:** Remove the current channel's topic. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",nuke">
+    **Usage:** `,nuke` **Description:** Clone the current channel and delete the original to clear all messages. **Permission:** Manage Channels and AntiNuke Admin
+  </Accordion>
+
+  <Accordion title=",channel create">
+    **Usage:** `,channel create <name>` **Description:** Create a new text channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",channel delete">
+    **Usage:** `,channel delete <channel>` **Description:** Delete a channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",channel duplicate">
+    **Usage:** `,channel duplicate <channel>` **Description:** Duplicate a channel with the same permissions. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",channel rename">
+    **Usage:** `,channel rename <channel> <new_name>` **Description:** Rename a channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",category create">
+    **Usage:** `,category create <name>` **Description:** Create a new category. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",category delete">
+    **Usage:** `,category delete <category>` **Description:** Delete a category. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",nsfw toggle">
+    **Usage:** `,nsfw toggle [channel] <on/off>` **Description:** Toggle the NSFW status of a text channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",spoiler toggle">
+    **Usage:** `,spoiler toggle [channel] <on/off>` **Description:** Toggle spoiler-only mode for a text channel. **Permission:** Manage Channels
+  </Accordion>
+
+  <Accordion title=",clearinvites">
+    **Usage:** `,clearinvites` **Description:** Remove all existing invites in the server. **Permission:** Manage Guild
+  </Accordion>
+</AccordionGroup>
+
+## Emoji, sticker, and guild management
+
+<AccordionGroup>
+  <Accordion title=",emoji add">
+    **Usage:** `,emoji add <name> <url_or_emoji>` **Description:** Add a custom emoji from an attachment, image URL, or another server's emoji. **Permission:** Manage Expressions
+  </Accordion>
+
+  <Accordion title=",emoji delete">
+    **Usage:** `,emoji delete <emoji>...` **Description:** Delete one or multiple custom emojis. **Permission:** Manage Expressions
+  </Accordion>
+
+  <Accordion title=",steal">
+    **Usage:** `,steal <emoji>...` **Description:** Steal emojis from a message and add them to the server. **Permission:** Manage Expressions
+  </Accordion>
+
+  <Accordion title=",sticker steal">
+    **Usage:** `,sticker steal` **Description:** Steal a sticker from an uploaded file or a replied message. **Permission:** Manage Expressions
+  </Accordion>
+
+  <Accordion title=",sticker delete">
+    **Usage:** `,sticker delete <name>...` **Description:** Delete one or multiple server stickers. **Permission:** Manage Expressions
+  </Accordion>
+
+  <Accordion title=",guild edit icon">
+    **Usage:** `,guild edit icon [attachment]` **Description:** Change the server icon. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",guild edit banner">
+    **Usage:** `,guild edit banner [attachment]` **Description:** Change the server banner. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",guild edit splash">
+    **Usage:** `,guild edit splash [attachment]` **Description:** Change the server invite splash. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",guild edit name">
+    **Usage:** `,guild edit name <new_name>` **Description:** Rename the server. **Permission:** Manage Guild
+  </Accordion>
+</AccordionGroup>
+
+## Cases, stats, and utilities
+
+<AccordionGroup>
+  <Accordion title=",case">
+    **Usage:** `,case <case_id>` **Description:** View a moderation case by its ID. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",case reason">
+    **Usage:** `,case reason <case_id> <new_reason>` **Description:** Edit the reason attached to a case. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",case delete">
+    **Usage:** `,case delete <case_id>` **Description:** Delete a moderation case. **Permission:** Administrator
+  </Accordion>
+
+  <Accordion title=",case list">
+    **Usage:** `,case list [member]` **Description:** View the moderation case history for a member. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",modstats">
+    **Usage:** `,modstats [member]` **Description:** View moderation activity for a moderator or the server leaderboard. **Permission:** Manage Messages
+  </Accordion>
+
+  <Accordion title=",nickname">
+    **Usage:** `,nickname <member> [new_name]` **Description:** Change or reset a member's nickname. **Permission:** Manage Nicknames
+  </Accordion>
+
+  <Accordion title=",dump">
+    **Usage:** `,dump <role> [--ids]` **Description:** Export all members of a role to a file. **Permission:** Manage Roles
+  </Accordion>
+
+  <Accordion title=",poll">
+    **Usage:** `,poll <question>` **Description:** Create a yes/no poll in the channel. **Permission:** Manage Messages
+  </Accordion>
+</AccordionGroup>
+
+## Appeals
+
+<AccordionGroup>
+  <Accordion title=",appeal set">
+    **Usage:** `,appeal set <invite_url>` **Description:** Set the appeal server invite and enable the appeal DM system. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",appeal enable">
+    **Usage:** `,appeal enable` **Description:** Enable the appeal DM system using the previously set invite. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",appeal disable">
+    **Usage:** `,appeal disable` **Description:** Disable the appeal DM system. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",appeal view">
+    **Usage:** `,appeal view` **Description:** View the current appeal system configuration. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",appeal message set">
+    **Usage:** `,appeal message set <template>` **Description:** Set a custom template for the appeal DM message. **Permission:** Manage Guild
+  </Accordion>
+
+  <Accordion title=",appeal message view">
+    **Usage:** `,appeal message view` **Description:** View the current custom appeal message template. **Permission:** Manage Guild
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Run `,help <command>` in your server for in-the-moment usage help. seize supports both prefix and slash commands, and you can also mention the bot to invoke commands.
+</Tip>

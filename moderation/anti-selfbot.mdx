@@ -1,0 +1,62 @@
+---
+title: "Configure Anti-Selfbot Detection in Seize"
+sidebarTitle: "Anti-Selfbot"
+description: "Learn how seize detects and flags selfbot-like behavior using command cadence, sniping, and reaction latency scoring without auto-punishing users."
+---
+
+seize's anti-selfbot system monitors member behavior and builds a live score based on mechanical patterns that are difficult for humans to replicate. When a user's score crosses your configured threshold, seize flags them for staff review. It never auto-punishes.
+
+<Note>
+  Anti-selfbot is a premium feature. A server must have premium enabled before these commands will function.
+</Note>
+
+## What the system detects
+
+The anti-selfbot scorer watches three signals:
+
+1. **Mechanical command cadence:** Measures the interval between command-like messages. If the intervals are tight and extremely consistent, the user receives a score bump.
+2. **Cross-bot sniping:** Watches for messages that start with watched prefixes (for example, another bot's command prefix) sent within a short window after a message is deleted.
+3. **Instant reaction and typing latency:** Tracks how quickly a user reacts to a new message or starts typing after a message is posted. Repeated sub-second latencies increase the score.
+
+Scores decay automatically over time using a half-life of 15 minutes. A user who pauses normal activity will see their score drop without manual intervention.
+
+## Enable and configure detection
+
+<Steps>
+  <Step title="Enable the system">
+    Run `,selfbot enable` to turn on detection for the server.
+  </Step>
+  <Step title="Set a log channel">
+    Run `,selfbot channel #mod-log` so flagged members are posted for review.
+  </Step>
+  <Step title="Adjust the threshold">
+    Run `,selfbot threshold 100` to set the score a user must cross before being flagged. The default is 100 and the minimum is 10.
+  </Step>
+</Steps>
+
+## Manage the watch-list and whitelist
+
+**Watched prefixes** are used for snipe detection. When a message starting with a watched prefix is sent shortly after another message is deleted, the user is scored.
+
+- **Add a prefix:** `,selfbot watch add -`
+- **Remove a prefix:** `,selfbot watch remove -`
+- **List prefixes:** `,selfbot watch list`
+
+**Whitelist** excludes specific members or roles from scoring entirely.
+
+- **Add an exemption:** `,selfbot whitelist add @user` or `,selfbot whitelist add @role`
+- **Remove an exemption:** `,selfbot whitelist remove @user`
+- **List exemptions:** `,selfbot whitelist list`
+
+## Review flagged activity
+
+- **Check a member's live score:** `,selfbot status @user` This shows the current decayed score, the server's threshold, and a breakdown of which signals contributed.
+- **View recent flags:** `,selfbot incidents` This lists the most recent flags recorded in the server with timestamps and scores.
+
+## Disable detection
+
+Run `,selfbot disable` to turn off the system. Your configuration and whitelist remain saved so you can re-enable later without reconfiguring.
+
+<Tip>
+  Because the system only flags for review, you should pair anti-selfbot with your existing moderation workflow. Use the flagged log channel to decide whether to warn, mute, or ban.
+</Tip>

@@ -1,0 +1,136 @@
+---
+title: "Economy system: earn, gamble, trade, and invest"
+sidebarTitle: "Economy"
+description: "Use seize's economy to earn cash through jobs and crimes, gamble in 15+ games, trade on the player marketplace, buy shop items, and invest in stocks."
+---
+
+seize's economy system gives your server a full virtual currency experience. Members can earn cash through jobs and daily rewards, gamble in more than 15 games, buy power-ups and cosmetics, trade on a player marketplace, and even invest in stocks.
+
+## Balance and banking
+
+Your money is split between your wallet and your bank. Wallet cash is used for gambling and transfers, while banked cash is safer and earns interest.
+
+| Command | Description |
+| --- | --- |
+| `,balance [member]` | Check wallet and bank balances |
+| `,deposit <amount>` | Move cash from wallet to bank |
+| `,withdraw <amount>` | Move cash from bank to wallet |
+| `,pay <member> <amount>` | Send cash to another member |
+| `,upgradecap` | Increase your bank capacity |
+| `,capinfo` | View all bank upgrade tiers |
+
+Use `all`, `half`, or a percentage like `50%` when specifying amounts.
+
+## Earning cash
+
+Work, beg, or take risks to grow your balance. Each method has its own cooldown.
+
+| Command | Description | Cooldown |
+| --- | --- | --- |
+| `,daily` | Claim a daily reward with streak bonuses | 20 hours |
+| `,weekly` | Claim a weekly reward | 5 days |
+| `,work` | Work a random shift for cash | 30 minutes |
+| `,beg` | Ask strangers for spare change | 2 minutes |
+| `,crime` | Attempt a crime with a 45% success rate | 1 hour 30 minutes |
+| `,rob <member>` | Try to steal from another member's wallet | 3 hours |
+
+## Gambling games
+
+seize offers a wide variety of gambling games. In most games you can use `all`, `half`, or a percentage for your bet.
+
+<AccordionGroup>
+  <Accordion title="Quick luck games">
+    - `,slots <bet>`: Spin a 3-reel slot machine. Match symbols for jackpots up to 50x.
+    - `,coinflip <bet> <heads/tails>`: Flip a coin.
+    - `,dice <bet> <2-12/even/odd/doubles>`: Roll two dice.
+    - `,roulette <bet> <choice>`: Bet on red, black, even, odd, high, low, a number, a dozen, or a column.
+    - `,wheel <bet>`: Spin the wheel of fortune. Payouts range from 0.3x up to 25x.
+    - `,scratch <bet>`: Reveal tiles on a scratch card and match symbols.
+  </Accordion>
+
+  <Accordion title="Decision games">
+    - `,blackjack <bet>`: Play against the dealer. Hit, stand, or double down.
+    - `,crash <bet>`: Watch the multiplier rise and cash out before it crashes.
+    - `,highlow <bet>`: Guess whether the next card is higher or lower. Bank your winnings after each correct guess.
+    - `,mines <bet> <mines>`: Reveal safe tiles on a grid. Cash out anytime before hitting a mine.
+    - `,towers <bet>`: Climb 8 floors by picking the safe tile on each floor.
+    - `,bomb <bet>`: Defuse a bomb by cutting the correct wire. 4x payout, 1 in 5 chance.
+    - `,horserace <bet> <horse>`: Pick a horse and bet on the race.
+    - `,war <bet>`: Draw a card against the dealer. Higher card wins; ties trigger war.
+  </Accordion>
+
+  <Accordion title="Player duels">
+    - `,duel <member> <bet>`: Challenge another member to a coinflip duel.
+    - `,rebet`: Re-run your last bet with the same parameters.
+  </Accordion>
+</AccordionGroup>
+
+## Profile and records
+
+Track your progress and view your history.
+
+| Command | Description |
+| --- | --- |
+| `,profile [member]` | Full economy profile with stats and active effects |
+| `,transactions [member]` | Recent transaction history |
+| `,leaderboard` | Richest users globally |
+| `,leaderboard server` | Richest users in this server |
+| `,leaderboard weekly` | Weekly earning leaderboard |
+
+## Lottery
+
+Buy tickets and compete for a growing jackpot.
+
+| Command | Description |
+| --- | --- |
+| `,lottery` | View the current jackpot and your tickets |
+| `,lottery buy <qty>` | Purchase tickets (100 each) |
+| `,lottery draw` | Force a draw (admin only) |
+
+Draws happen automatically every 6 hours.
+
+## Stocks
+
+Invest in a simulated market with fluctuating prices.
+
+| Command | Description |
+| --- | --- |
+| `,stocks` | View current prices for all tickers |
+| `,stocks buy <ticker> <shares>` | Buy shares |
+| `,stocks sell <ticker> <shares>` | Sell shares |
+| `,stocks portfolio [member]` | View your holdings and net worth |
+| `,stocks history <ticker>` | Price history chart |
+
+Available tickers include WRTH (seize.inc), BOTD, CRYP, NTRP, RNGL, PIZZ, BLNT, MOON, KORN, and WPWR.
+
+## Shop, inventory, and marketplace
+
+Buy perks, gamble boosters, and cosmetic badges. Trade items with other players on the marketplace.
+
+| Command | Description |
+| --- | --- |
+| `,shop` | Browse items for sale |
+| `,buy <item> [qty]` | Purchase an item |
+| `,inventory [member]` | View your items and active boosts |
+| `,use <item>` | Consume a power-up |
+| `,equip <item>` | Equip a cosmetic badge |
+| `,unequip` | Remove your equipped cosmetic |
+| `,gift <member> <item> [qty]` | Give an item to another user |
+| `,sell <item> <price> [qty]` | List an item on the marketplace |
+| `,market` | Browse marketplace listings |
+| `,market buy <id> [qty]` | Buy from a listing |
+
+### Shop items
+
+- **Lottery Ticket**: Enter the server lottery.
+- **Lucky Coinflip**: Guarantees your next coinflip win.
+- **Crime Alibi**: Guarantees your next crime succeeds.
+- **Getaway Driver**: Instantly resets your rob cooldown.
+- **Payout Boost**: 2x payout on your next winning game for 24 hours.
+- **Double Daily Pass**: Doubles daily rewards for 24 hours.
+- **Bank Expansion Pass**: +50% bank capacity for 24 hours.
+- **Golden Badge / Crown Badge**: Cosmetic badges to show your wealth.
+
+<Tip>
+  The seller receives 95% of a marketplace sale. The remaining 5% is a marketplace fee.
+</Tip>
