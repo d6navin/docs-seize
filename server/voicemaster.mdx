@@ -1,3 +1,212 @@
 ---
-title: "voicemaster"
+title: "VoiceMaster: Create and Manage Temporary Voice Channels"
+sidebarTitle: "VoiceMaster"
+description: "Use seize's VoiceMaster to create temporary, member-owned voice channels that clean up automatically when empty. Learn setup, owner commands, and admin defaults."
 ---
+
+With seize's VoiceMaster feature, your server members can create their own temporary voice channels simply by joining a designated hub. Each channel is owned by the member who created it, giving them full control over visibility, permissions, and settings. When the last person leaves, the channel deletes itself automatically.
+
+## How VoiceMaster Works
+
+When an administrator sets up VoiceMaster, seize creates a category containing:
+
+- A **Join to Create** voice channel (the hub)
+- An **interface** text channel with button controls
+
+Any member who joins the hub gets a personal voice channel. They become the owner and can manage it through commands or the interface buttons. The channel disappears once it is empty.
+
+<Note>
+  You need the **Administrator** permission to run setup and configuration commands.
+</Note>
+
+## Setup
+
+Get VoiceMaster running in your server with a single command.
+
+<Steps>
+  <Step title="Run setup">
+    Type `,voicemaster setup` (or `,vm setup`). seize creates a "VoiceMaster" category, a "Join to Create" voice channel, and an interface panel with control buttons.
+  </Step>
+  <Step title="Join the hub">
+    Have members join the "Join to Create" channel. seize creates their temporary channel and moves them into it automatically.
+  </Step>
+</Steps>
+
+### Reset VoiceMaster
+
+To remove all VoiceMaster channels and start over, run:
+
+```text
+,voicemaster reset
+```
+
+<Warning>
+  This deletes the entire VoiceMaster category and all temporary channels inside it. This action cannot be undone.
+</Warning>
+
+## Owner Controls
+
+Channel owners can manage their temporary voice channel using the interface buttons or text commands. All commands use the `,vm` prefix (for example, `,vm lock`).
+
+<AccordionGroup>
+  <Accordion title="Lock and unlock your channel">
+    **Lock** prevents new members from joining. **Unlock** restores access.
+
+    - `,vm lock`
+    - `,vm unlock`
+  </Accordion>
+
+  <Accordion title="Ghost and reveal your channel">
+    **Ghost** hides the channel from everyone except those inside it. **Reveal** makes it visible again.
+
+    - `,vm ghost` (alias: `,vm hide`)
+    - `,vm reveal` (aliases: `,vm show`, `,vm unhide`)
+  </Accordion>
+
+  <Accordion title="Claim ownership">
+    Take over a channel if the original owner has left.
+
+    - `,vm claim`
+  </Accordion>
+
+  <Accordion title="Transfer ownership">
+    Give your channel to another member who is currently inside it.
+
+    - `,vm transfer <member>` (alias: `,vm give <member>`)
+  </Accordion>
+
+  <Accordion title="Disconnect a member">
+    Remove a specific user from your channel.
+
+    - `,vm disconnect <member>` (alias: `,vm kick <member>`)
+  </Accordion>
+
+  <Accordion title="Start an activity">
+    Launch a voice channel activity such as Watch Together, Chess, or Poker Night.
+
+    - `,vm activity` (alias: `,vm games`)
+  </Accordion>
+
+  <Accordion title="View channel info">
+    See the owner, lock status, creation time, bitrate, and member count.
+
+    - `,vm info` (aliases: `,vm information`, `,vm details`)
+  </Accordion>
+
+  <Accordion title="Set user limit">
+    Restrict how many members can join at once. Use a number from 0 to 99.
+
+    - `,vm limit <number>` (alias: `,vm size <number>`)
+  </Accordion>
+
+  <Accordion title="Permit or reject members">
+    **Permit** lets a specific member join even when locked. **Reject** blocks them and disconnects them if they are inside.
+
+    - `,vm permit <member>` (aliases: `,vm allow`, `,vm accept`)
+    - `,vm reject <member>` (aliases: `,vm deny`, `,vm block`)
+  </Accordion>
+
+  <Accordion title="Change bitrate">
+    Adjust voice quality by setting a bitrate in kbps. Valid range is 8 to your server's maximum.
+
+    - `,vm bitrate <kbps>` (alias: `,vm quality <kbps>`)
+  </Accordion>
+
+  <Accordion title="Rename your channel">
+    Give your channel a custom name, up to 100 characters.
+
+    - `,vm rename <name>` (alias: `,vm name <name>`)
+  </Accordion>
+
+  <Accordion title="Set channel status">
+    Display a status message under your voice channel, up to 500 characters. Run without text to clear it.
+
+    - `,vm status [text]`
+  </Accordion>
+
+  <Accordion title="Manage blacklists">
+    Permanently block a member from joining any voice channel you create.
+
+    - `,vm blacklist add <member>`
+    - `,vm blacklist remove <member>` (aliases: `delete`, `rm`)
+    - `,vm blacklist list`
+  </Accordion>
+
+  <Accordion title="Manage trusted members">
+    Trust specific members so they can always join and bypass locks on your channels.
+
+    - `,vm trust add <member>`
+    - `,vm trust remove <member>` (aliases: `delete`, `rm`)
+    - `,vm trust list`
+  </Accordion>
+
+  <Accordion title="Save and apply templates">
+    Save your current channel settings as a personal template and reuse them automatically on new channels.
+
+    - `,vm template save`
+    - `,vm template load` (alias: `,vm template apply`)
+    - `,vm template clear` (aliases: `reset`)
+  </Accordion>
+</AccordionGroup>
+
+## Admin Configuration
+
+Administrators can configure defaults that apply to every new temporary voice channel.
+
+<AccordionGroup>
+  <Accordion title="Default channel name">
+    Set a custom name template using `{user}` for the owner's display name.
+
+    - `,vm default name <name>`
+    - `,vm default name` (with no text) resets to `{user}'s call`
+  </Accordion>
+
+  <Accordion title="Default bitrate">
+    Set a default bitrate in kbps for new channels.
+
+    - `,vm default bitrate <kbps>`
+    - `,vm default bitrate` resets to the server default
+  </Accordion>
+
+  <Accordion title="Default voice region">
+    Choose a regional server for new channels. Run without a region to reset to automatic.
+
+    - `,vm default region <region>` (alias: `,vm default rtc <region>`)
+
+    Supported regions: `automatic`, `us-east`, `us-west`, `us-central`, `us-south`, `brazil`, `rotterdam`, `sydney`, `singapore`, `japan`, `hongkong`, `india`, `russia`, `southafrica`.
+  </Accordion>
+
+  <Accordion title="AFK auto-disconnect">
+    Automatically disconnect members who are both muted and deafened after a set number of minutes.
+
+    - `,vm default afkmove <minutes>` (alias: `,vm default afk <minutes>`)
+    - `,vm default afkmove off` disables the feature
+  </Accordion>
+
+  <Accordion title="Resend the interface">
+    If the control panel is lost or deleted, regenerate it in the current channel.
+
+    - `,vm interface`
+  </Accordion>
+</AccordionGroup>
+
+## Interface Buttons
+
+The interface panel in the VoiceMaster text channel gives owners quick button controls:
+
+| Button | Action |
+| --- | --- |
+| Lock | Lock the channel |
+| Unlock | Unlock the channel |
+| Ghost | Hide the channel from non-members |
+| Reveal | Make the channel visible again |
+| Claim | Claim an unowned channel |
+| Disconnect | Select a member to disconnect |
+| Activity | Launch a voice activity |
+| Info | View channel details |
+| Increase | Raise the user limit by 1 |
+| Decrease | Lower the user limit by 1 |
+
+<Tip>
+  The interface is persistent: members can close and reopen Discord and the buttons will still work.
+</Tip>
