@@ -1,3 +1,250 @@
 ---
-title: "automation"
+title: "Automate Roles, Reactions, Responses, Filters, and Channels"
+sidebarTitle: "Automation"
+description: "Configure seize's auto roles, auto reactions, responders, reaction roles, content filters, sticky messages, image-only channels, and other automation features."
 ---
+
+seize's automation module removes repetitive moderation work. Set up auto-assigned roles, trigger emoji reactions, respond to keywords, filter unwanted content, pin sticky messages, restrict channels to images, DM new joiners, and schedule channel wipes. Every feature described here is configured by administrators or Manage Guild.
+
+## Auto roles
+
+Automatically grant roles to new members or new bots when they join.
+
+| Command | Usage |
+| --- | --- |
+| `,autorole add` | `,autorole add <role>` |
+| `,autorole remove` | `,autorole remove <role>` |
+| `,autorole list` | List configured member auto-roles |
+| `,autorole bots add` | `,autorole bots add <role>` |
+| `,autorole bots remove` | `,autorole bots remove <role>` |
+| `,autorole bots list` | List bot auto-roles |
+
+## Auto reactions
+
+Automatically react to messages in a channel with specific emojis.
+
+| Command | Usage |
+| --- | --- |
+| `,autoreact add` | `,autoreact add <channel> <emoji>` |
+| `,autoreact remove` | `,autoreact remove <channel> <emoji>` |
+| `,autoreact list` | List all auto reactions |
+
+## Word triggers
+
+React with an emoji whenever a specific word is used.
+
+| Command | Usage |
+| --- | --- |
+| `,trigger add` | `,trigger add <emoji> <word>` |
+| `,trigger remove` | `,trigger remove <emoji> <word>` |
+| `,trigger list` | List triggers |
+
+## Reaction roles
+
+Let members assign themselves roles by reacting to a message.
+
+| Command | Usage |
+| --- | --- |
+| `,reactionrole add` | `,reactionrole add <channel> <message_id> <emoji> <role>` |
+| `,reactionrole remove` | `,reactionrole remove <message_id> <emoji>` |
+| `,reactionrole list` | List all reaction roles |
+
+## Button roles
+
+Same idea as reaction roles, but with clickable buttons.
+
+| Command | Usage |
+| --- | --- |
+| `,buttonrole add` | `,buttonrole add <message_link> <role> [style] [button_text]` |
+| `,buttonrole list` | `,buttonrole list <message_link>` |
+| `,buttonrole remove` | `,buttonrole remove <message_link> <index>` |
+| `,buttonrole removeall` | `,buttonrole removeall <message_link>` |
+| `,buttonrole reset` | Reset all button roles |
+
+Valid button styles: `blurple`, `gray`, `green`, `red`.
+
+## Auto responder
+
+Reply to trigger phrases with a preset message.
+
+<AccordionGroup>
+  <Accordion title=",autoresponder add">
+    **Usage:** `,autoresponder add <trigger> <response>`
+
+    Add an auto response. Response supports `{embed}` and variables (run `,autoresponder variables` for the full list).
+  </Accordion>
+
+  <Accordion title=",autoresponder remove">
+    **Usage:** `,autoresponder remove <trigger>`. Delete an auto response.
+  </Accordion>
+
+  <Accordion title=",autoresponder list">
+    List every configured auto response.
+  </Accordion>
+
+  <Accordion title=",autoresponder clear">
+    Remove every auto response.
+  </Accordion>
+
+  <Accordion title=",autoresponder exclusive add">
+    **Usage:** `,autoresponder exclusive add <role> <trigger> <response>`. Add a response that only fires for members with the given role.
+  </Accordion>
+
+  <Accordion title=",autoresponder exclusive remove">
+    **Usage:** `,autoresponder exclusive remove <trigger>`.
+  </Accordion>
+
+  <Accordion title=",autoresponder exclusive list">
+    List exclusive responses.
+  </Accordion>
+
+  <Accordion title=",autoresponder exclusive clear">
+    Clear all exclusive responses.
+  </Accordion>
+
+  <Accordion title=",autoresponder variables">
+    Show every available variable placeholder.
+  </Accordion>
+</AccordionGroup>
+
+## Content filter
+
+Block words, invites, links, spoilers, spam, mass mentions, caps, emojis, music files, and custom regex patterns. Each filter can be toggled per channel or server-wide and has an exempt role list.
+
+| Command | Usage |
+| --- | --- |
+| `,filter add` | `,filter add <word>` |
+| `,filter remove` | `,filter remove <word>` |
+| `,filter list` | List filtered words |
+| `,filter reset` | Reset the word filter |
+| `,filter resetall` | Reset every filter type |
+| `,filter snipe` | Toggle whether filtered messages are recoverable via `,snipe` |
+| `,filter wordmigrate` | Migrate legacy filter storage |
+
+### Per-filter settings
+
+Each filter type shares the same subcommand structure:
+
+```text
+,filter <type> <server|#channel> <on|off> [flags]
+,filter <type> exempt <role>
+,filter <type> exempt list
+```
+
+Available types: `caps`, `invites`, `regex`, `links`, `spoilers`, `spam`, `musicfiles`, `massmention`, `emoji`.
+
+Regex filters have their own management commands:
+
+| Command | Usage |
+| --- | --- |
+| `,filter regex add` | `,filter regex add <pattern>` |
+| `,filter regex remove` | `,filter regex remove <pattern>` |
+
+## Sticky messages
+
+Keep a message pinned to the bottom of a channel so it stays visible.
+
+| Command | Usage |
+| --- | --- |
+| `,stickymessage add` | `,stickymessage add <channel> <type> <script>` (type is `plain` or `embed`) |
+| `,stickymessage list` | List stickies |
+| `,stickymessage remove` | `,stickymessage remove <channel>` |
+| `,stickymessage clear` | Remove every sticky in the server |
+
+## Image-only channels
+
+Restrict channels to image posts. Text-only messages are deleted automatically.
+
+| Command | Usage |
+| --- | --- |
+| `,imgonly add` | `,imgonly add [channel]` |
+| `,imgonly remove` | `,imgonly remove <channel>` |
+| `,imgonly list` | List image-only channels |
+| `,imgonly reset` | Disable image-only mode in every channel |
+
+## Join DM
+
+Send a private welcome message to every member who joins.
+
+| Command | Usage |
+| --- | --- |
+| `,joindm toggle` | `,joindm toggle <on/off>` |
+| `,joindm embed set` | `,joindm embed set <text>` (supports `{embed}` syntax) |
+| `,joindm embed reset` | Clear the DM template |
+| `,joindm test` | DM yourself the current template |
+| `,joindm view` | Preview the current template |
+| `,joindm variables` | Show available variables |
+
+## Auto pfp (profile picture posts)
+
+Automatically post curated profile picture ideas to a channel from Pinterest boards or search queries.
+
+<AccordionGroup>
+  <Accordion title=",autopfp add">
+    **Usage:** `,autopfp add <channel> <query>`. Set a channel to auto-post PFPs matching a query.
+  </Accordion>
+
+  <Accordion title=",autopfp remove">
+    **Usage:** `,autopfp remove <channel>`.
+  </Accordion>
+
+  <Accordion title=",autopfp edit">
+    **Usage:** `,autopfp edit <channel> <field> <value>`. Edit an existing config (interval, source, tags).
+  </Accordion>
+
+  <Accordion title=",autopfp list">
+    List every auto pfp channel.
+  </Accordion>
+
+  <Accordion title=",autopfp reset">
+    Remove every auto pfp configuration.
+  </Accordion>
+
+  <Accordion title=",autopfp post">
+    **Usage:** `,autopfp post [channel]`. Post a fresh pfp on demand.
+  </Accordion>
+
+  <Accordion title=",autopfp preview">
+    **Usage:** `,autopfp preview <pin_url>`. Preview a specific Pinterest pin.
+  </Accordion>
+
+  <Accordion title=",autopfp board set">
+    **Usage:** `,autopfp board set <board> <query>`. Add a Pinterest board source.
+  </Accordion>
+
+  <Accordion title=",autopfp board remove">
+    **Usage:** `,autopfp board remove <query>`.
+  </Accordion>
+
+  <Accordion title=",autopfp board list">
+    List board sources.
+  </Accordion>
+</AccordionGroup>
+
+## Name style
+
+Give members' nicknames stylized fonts, effects, and gradient colors.
+
+| Command | Usage |
+| --- | --- |
+| `,namestyle set` | `,namestyle set <font_id> <effect_id> <color1_hex> [color2_hex]` |
+| `,namestyle preset` | `,namestyle preset <preset_name>` |
+| `,namestyle reset` | Remove any stylization |
+| `,namestyle list` | Browse available fonts and effects |
+| `,namestyle info` | View your current style |
+
+## Auto nuke (scheduled channel wipes)
+
+Wipe a channel on a schedule. Useful for temporary log rooms or announcement boards.
+
+| Command | Usage |
+| --- | --- |
+| `,autonuke set` | `,autonuke set [channel] <duration>` (e.g. `1h`, `24h`, `7d`) |
+| `,autonuke remove` | `,autonuke remove [channel]` |
+| `,autonuke message` | `,autonuke message [channel] <text>` |
+| `,autonuke message view` | View the current post-wipe message |
+| `,autonuke message remove` | Clear the post-wipe message |
+
+<Warning>
+  Auto nuke permanently deletes messages on a schedule. Never enable it in a channel with content you care about.
+</Warning>

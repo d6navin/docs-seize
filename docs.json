@@ -104,7 +104,7 @@
     "primary": {
       "type": "button",
       "label": "Invite Bot",
-      "href": "https://discord.com/oauth2/authorize"
+      "href": "https://discord.com/oauth2/authorize?client_id=1550954284659638363&scope=bot+applications.commands&permissions=8"
     }
   },
   "contextual": {

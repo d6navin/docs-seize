@@ -1,3 +1,163 @@
 ---
-title: "tickets-giveaways"
+title: "Run Support Tickets and Giveaways in Your Discord Server"
+sidebarTitle: "Tickets & Giveaways"
+description: "Set up seize's ticket panels for member support and run giveaways with role requirements, bonus entries, custom pings, and rerolls in your Discord server."
 ---
+
+seize includes a full ticket system with panels, topics, and tags for handling member support, plus a giveaway system with role requirements and custom configuration. Both features are managed with the `,ticket` and `,giveaway` command groups.
+
+## Tickets
+
+Members open support tickets by clicking a button on a panel you post. Each ticket becomes a private thread or channel where staff can respond. Multiple panels can target different topics (billing, moderation appeals, general support) and use tags to categorize resolved tickets.
+
+### Setup
+
+<Steps>
+  <Step title="Run the setup wizard">
+    Type `,ticket setup` and follow the prompts. seize creates the ticket category, staff role permissions, and log channel.
+  </Step>
+  <Step title="Create a panel">
+    Use `,ticket panel` to build a panel. Add topics with `,ticket topic add <panel_name> <name> [flags]`.
+  </Step>
+  <Step title="Post the panel">
+    Post it to a channel with `,ticket panel post <name> [channel]`. Members can click the button to open a ticket.
+  </Step>
+</Steps>
+
+### Ticket commands
+
+<AccordionGroup>
+  <Accordion title=",ticket setup">
+    Run the guided setup for the entire ticket system.
+  </Accordion>
+
+  <Accordion title=",ticket panel">
+    Create a new ticket panel.
+  </Accordion>
+
+  <Accordion title=",ticket panel list">
+    List every configured panel.
+  </Accordion>
+
+  <Accordion title=",ticket panel post">
+    **Usage:** `,ticket panel post <name> [channel]`. Post the panel to a channel.
+  </Accordion>
+
+  <Accordion title=",ticket panel delete">
+    **Usage:** `,ticket panel delete <name>`. Delete a panel.
+  </Accordion>
+
+  <Accordion title=",ticket reset">
+    Wipe every ticket configuration and start over.
+  </Accordion>
+
+  <Accordion title=",ticket topic add">
+    **Usage:** `,ticket topic add <panel_name> <name> [flags]`. Add a topic option to a panel.
+  </Accordion>
+
+  <Accordion title=",ticket topic remove">
+    **Usage:** `,ticket topic remove <panel_name> <name>`.
+  </Accordion>
+
+  <Accordion title=",ticket topic list">
+    **Usage:** `,ticket topic list <panel_name>`. List topics on a panel.
+  </Accordion>
+
+  <Accordion title=",ticket tag create">
+    **Usage:** `,ticket tag create <name> [flags]`. Create a tag that can be applied to open tickets.
+  </Accordion>
+
+  <Accordion title=",ticket tag delete">
+    **Usage:** `,ticket tag delete <name>`.
+  </Accordion>
+
+  <Accordion title=",ticket tag list">
+    List every configured tag.
+  </Accordion>
+
+  <Accordion title=",ticket settag">
+    **Usage:** `,ticket settag <name>`. Apply a tag to the current ticket.
+  </Accordion>
+
+  <Accordion title=",ticket add">
+    **Usage:** `,ticket add <member>`. Add a member to the current ticket.
+  </Accordion>
+
+  <Accordion title=",ticket remove">
+    **Usage:** `,ticket remove <member>`. Remove a member from the current ticket.
+  </Accordion>
+
+  <Accordion title=",ticket rename">
+    **Usage:** `,ticket rename <name>`. Rename the current ticket channel.
+  </Accordion>
+
+  <Accordion title=",ticket queue">
+    View the current ticket queue for all panels.
+  </Accordion>
+
+  <Accordion title=",ticket stats">
+    **Usage:** `,ticket stats [member]`. Show ticket handling stats for the server or a specific staff member.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Use tags such as `resolved`, `waiting-on-user`, or `escalated` so staff can filter the queue at a glance.
+</Tip>
+
+## Giveaways
+
+Run standard giveaways with prize, duration, and winner count, plus role requirements, ping roles, and per-role bonus entries.
+
+### Start a giveaway
+
+Use `,giveaway start <duration> [flags]` with flags to configure the drop:
+
+```text
+,giveaway start 1h --prize "Nitro Classic" --winners 1 --description "React to enter"
+```
+
+Common flags include `--prize`, `--winners`, `--description`, `--required-role`, and `--ping-role`.
+
+### Giveaway commands
+
+<AccordionGroup>
+  <Accordion title=",giveaway start">
+    **Usage:** `,giveaway start <duration> [flags]`. Start a new giveaway.
+  </Accordion>
+
+  <Accordion title=",giveaway edit">
+    **Usage:** `,giveaway edit <message_id> [flags]`. Edit an active giveaway's fields.
+  </Accordion>
+
+  <Accordion title=",giveaway end">
+    **Usage:** `,giveaway end <message_id>`. End the giveaway early and roll winners.
+  </Accordion>
+
+  <Accordion title=",giveaway reroll">
+    **Usage:** `,giveaway reroll <message_id>`. Roll new winners for a finished giveaway.
+  </Accordion>
+
+  <Accordion title=",giveaway list">
+    Show every active giveaway in the server.
+  </Accordion>
+
+  <Accordion title=",giveaway config">
+    Show global giveaway defaults.
+  </Accordion>
+
+  <Accordion title=",giveaway config pingrole">
+    **Usage:** `,giveaway config pingrole [role]`. Default role to ping on new giveaways.
+  </Accordion>
+
+  <Accordion title=",giveaway config requiredrole">
+    **Usage:** `,giveaway config requiredrole [role]`. Default role required to enter.
+  </Accordion>
+
+  <Accordion title=",giveaway config reset">
+    Reset the giveaway config to defaults.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Duration accepts formats like `30m`, `2h`, `1d`, `1w`. Combine units with commas or spaces (`1d 12h`).
+</Note>

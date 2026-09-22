@@ -1,3 +1,183 @@
 ---
-title: "antinuke-antiraid"
+title: "Protect Your Server With Anti-Nuke, Anti-Raid, and Honeypot"
+sidebarTitle: "Anti-Nuke & Anti-Raid"
+description: "Configure seize's anti-nuke, anti-raid, and honeypot systems to block admin abuse, join floods, and bait accounts targeting your Discord server."
 ---
+
+seize's protection stack has three layers: anti-nuke (against trusted-user abuse), anti-raid (against join floods and mass-mention attacks), and honeypot (bait channels that instantly ban intruders). This page covers the setup and configuration for all three.
+
+## Anti-Nuke
+
+Anti-nuke protects your server against destructive actions from admins, bots, and users with elevated permissions. When a threshold is exceeded within its time window, the offender is automatically punished.
+
+### What is protected
+
+| Module | Action monitored |
+| --- | --- |
+| `channel` | Channel create/delete/update |
+| `role` | Role create/delete/update |
+| `ban` | Mass bans |
+| `kick` | Mass kicks |
+| `webhook` | Webhook create/delete/update |
+| `botadd` | Adding bots to the server |
+| `emoji` | Emoji create/delete/update |
+| `permissions` | Dangerous permission grants |
+| `vanity` | Vanity URL changes |
+
+### Quick setup
+
+Run a single command to enable everything at once.
+
+```text
+,antinuke fullsetup [log_channel]
+```
+
+To undo the guided setup, run:
+
+```text
+,antinuke fullsetup reset
+```
+
+### Configuration commands
+
+<AccordionGroup>
+  <Accordion title=",antinuke enable / disable">
+    Toggle the anti-nuke system on or off. **Permission:** Server Owner.
+  </Accordion>
+
+  <Accordion title=",antinuke logging <channel>">
+    Set the channel where anti-nuke events are logged.
+  </Accordion>
+
+  <Accordion title=",antinuke admin <member>">
+    Grant or revoke admin permissions for the anti-nuke system. Admins can configure it without needing server ownership.
+  </Accordion>
+
+  <Accordion title=",antinuke admins">
+    List everyone with anti-nuke admin access.
+  </Accordion>
+
+  <Accordion title=",antinuke whitelist <member>">
+    Add or remove a member from the whitelist. Whitelisted members bypass all anti-nuke checks.
+  </Accordion>
+
+  <Accordion title="Module toggles">
+    Enable, disable, or configure a specific module with `,antinuke <module> <enable|disable> [flags]`. Modules: `channel`, `role`, `ban`, `kick`, `webhook`, `botadd`, `emoji`, `permissions`, `vanity`.
+
+    Common flags include `--threshold <n>` (number of actions before triggering) and `--punishment <ban|kick|strip>`.
+  </Accordion>
+
+  <Accordion title=",antinuke config">
+    View the full anti-nuke configuration.
+  </Accordion>
+
+  <Accordion title=",antinuke list">
+    List all module states and thresholds in a compact table.
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Only the server owner can run enable, disable, and admin management commands. Anti-nuke admins can adjust module thresholds and whitelists but cannot promote other admins.
+</Warning>
+
+## Anti-Raid
+
+Anti-raid defends against coordinated join attacks and mass-mention spam. When triggered, seize can quarantine, kick, ban, or lock down the server.
+
+### Configuration commands
+
+<AccordionGroup>
+  <Accordion title=",antiraid enable / disable">
+    Turn anti-raid protection on or off. **Permission:** Manage Guild.
+  </Accordion>
+
+  <Accordion title=",antiraid mode <preset>">
+    Apply a preset configuration. Common presets: `low`, `medium`, `high`, `strict`.
+  </Accordion>
+
+  <Accordion title=",antiraid action <action>">
+    Choose the punishment when triggered: `kick`, `ban`, `quarantine`, or `lockdown`.
+  </Accordion>
+
+  <Accordion title=",antiraid threshold <joins> <seconds>">
+    Trip the raid alarm if more than `joins` accounts join within `seconds`.
+  </Accordion>
+
+  <Accordion title=",antiraid accountage <days>">
+    Block accounts younger than the given number of days.
+  </Accordion>
+
+  <Accordion title=",antiraid avatarcheck <on|off>">
+    Require joining members to have a custom avatar.
+  </Accordion>
+
+  <Accordion title=",antiraid usernamecheck <on|off>">
+    Filter joining members based on suspicious username patterns.
+  </Accordion>
+
+  <Accordion title=",antiraid mentionspam <mentions> <seconds>">
+    Punish any user who mentions more than `mentions` unique users within `seconds`.
+  </Accordion>
+
+  <Accordion title=",antiraid lockdownduration <seconds>">
+    Set how long lockdown mode lasts once triggered.
+  </Accordion>
+
+  <Accordion title=",antiraid quarantinerole <role>">
+    Choose the role assigned to quarantined members.
+  </Accordion>
+
+  <Accordion title=",antiraid logchannel <channel>">
+    Set the channel where anti-raid alerts are posted.
+  </Accordion>
+
+  <Accordion title=",antiraid alertrole <role>">
+    Ping this role when an incident occurs.
+  </Accordion>
+
+  <Accordion title=",antiraid lockdown <on|off>">
+    Manually toggle lockdown mode.
+  </Accordion>
+
+  <Accordion title=",antiraid raidmode <on|off>">
+    Manually toggle raid mode, tightening join filters temporarily.
+  </Accordion>
+
+  <Accordion title=",antiraid whitelist">
+    Manage the whitelist. Subcommands: `add <member|role>`, `remove <member|role>`, `list`.
+  </Accordion>
+
+  <Accordion title=",antiraid config">
+    View the full anti-raid configuration.
+  </Accordion>
+
+  <Accordion title=",antiraid incidents">
+    View a history of recent incidents.
+  </Accordion>
+</AccordionGroup>
+
+## Honeypot
+
+Honeypot channels are traps. Any user who posts in a honeypot channel is instantly punished, catching self-bots and raiders that scan for channels to spam.
+
+<AccordionGroup>
+  <Accordion title=",honeypot setup [channel]">
+    Turn a channel into a honeypot. If no channel is provided, the current channel is used. **Permission:** Manage Guild.
+  </Accordion>
+
+  <Accordion title=",honeypot action <ban|kick|timeout>">
+    Set the punishment applied when someone posts in a honeypot channel.
+  </Accordion>
+
+  <Accordion title=",honeypot disable">
+    Remove the honeypot configuration and restore normal channel behavior.
+  </Accordion>
+
+  <Accordion title=",honeypot status">
+    Show the current honeypot channel and configured punishment.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Rename your honeypot channel to something enticing like `#free-nitro` or `#giveaway-entry` so intruders are more likely to fall into the trap. Regular members should be told never to post there.
+</Tip>
