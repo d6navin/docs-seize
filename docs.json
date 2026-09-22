@@ -7,7 +7,7 @@
     "light": "#8AA9F0",
     "dark": "#2E8B3D"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/logo.png",
   "navigation": {
     "groups": [
       {
@@ -103,7 +103,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Invite Bot",
+      "label": "Invite Seize",
       "href": "https://discord.com/oauth2/authorize?client_id=1550954284659638363&scope=bot+applications.commands&permissions=8"
     }
   },
